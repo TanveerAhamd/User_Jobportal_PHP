@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .badge {
+  font-size: 13px;
+  padding: 5px 10px;
+}
+
+    </style>
+</head>
+<body>
+    
+
+   <div class="container mt-4">
+  <h3 class="mb-4">Applied Jobs</h3>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Job Title</th>
+          <th>Company</th>
+          <th>Location</th>
+          <th>Date Applied</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <?php foreach ($applied_jobs as $job): ?>
+        <tr>
+          <td><?= $job['title'] ?></td>
+          <td><?= $job['company'] ?></td>
+          <td><?= $job['location'] ?></td>
+          <td><?= date('F d, Y', strtotime($job['applied_date'])) ?></td>
+          <td><span class="badge bg-info"><?= $job['status'] ?></span></td>
+          <td>
+            <a href="view_job.php?id=<?= $job['id'] ?>" class="btn btn-sm btn-primary">View</a>
+            <a href="withdraw.php?id=<?= $job['id'] ?>" class="btn btn-sm btn-danger">Withdraw</a>
+          </td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+</body>
+</html>
