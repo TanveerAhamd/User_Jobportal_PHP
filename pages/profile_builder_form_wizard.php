@@ -87,8 +87,9 @@
                 <!-- Logo -->
 
                 <!-- Start Navbar-Brand -->
+
                 <div class="navbar-logo-box">
-                    <a href="index.html" class="logo logo-dark">
+                    <a href="dashboard.php" class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="assets/images/logo-sm.png" alt="logo-sm-dark" height="20">
                         </span>
@@ -97,7 +98,7 @@
                         </span>
                     </a>
 
-                    <a href="index.html" class="logo logo-light">
+                    <a href="dashboard.php" class="logo logo-light">
                         <span class="logo-sm">
                             <img src="assets/images/logo-sm.png" alt="logo-sm-light" height="20">
                         </span>
@@ -110,157 +111,14 @@
                         <i class="mdi mdi-menu-open align-middle fs-19"></i>
                     </button>
                 </div>
-                <!-- End navbar brand -->
-
-                <!-- Start menu -->
+                <!-- End Navbar-Brand -->
+                <!-- Start Profile navbar -->
                 <div class="d-flex justify-content-between menu-sm px-3 ms-auto">
                     <div class="d-flex align-items-center gap-2">
-                        <div class="dropdown d-none d-lg-block">
-                            <button type="button" class="btn btn-primary btn-sm fs-14 d-inline"
-                                data-bs-toggle="dropdown">
-                                Apps
-                                <i class="mdi mdi-chevron-down align-middle"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-start dropdown-menu-animated">
-                                <a href="#" class="dropdown-item">
-                                    <div class="dropdown-icon"><i class="fa fa-boxes"></i></div>
-                                    <span class="dropdown-content">Inventory Manager</span>
-                                    <div class="dropdown-addon"><span class="badge badge-warning rounded-pill">20</span>
-                                    </div>
-                                </a>
-                                <div class="dropdown-submenu">
-                                    <a href="#" class="dropdown-item">
-                                        <div class="dropdown-icon"><i class="fa fa-project-diagram"></i></div>
-                                        <span class="dropdown-content">Project manager</span>
-                                        <div class="dropdown-addon"><i class="mdi mdi-chevron-right align-middle"></i>
-                                        </div>
-                                    </a>
-                                    <div class="dropdown-submenu-menu dropdown-submenu-end">
-                                        <a href="#" class="dropdown-item"><i class="dropdown-bullet"></i> <span
-                                                class="dropdown-content">Create project</span> </a>
-                                        <a href="#" class="dropdown-item"><i class="dropdown-bullet"></i> <span
-                                                class="dropdown-content">Delete project</span> </a>
-                                        <a href="#" class="dropdown-item"><i class="dropdown-bullet"></i> <span
-                                                class="dropdown-content">Ongoing project</span> </a>
-                                        <a href="#" class="dropdown-item"><i class="dropdown-bullet"></i> <span
-                                                class="dropdown-content">Completed project</span> </a>
-                                        <a href="#" class="dropdown-item"><i class="dropdown-bullet"></i> <span
-                                                class="dropdown-content">Urgent project</span></a>
-                                    </div>
-                                </div>
-                                <div class="dropdown-submenu">
-                                    <a href="#" class="dropdown-item">
-                                        <div class="dropdown-icon"><i class="fa fa-tasks"></i></div>
-                                        <span class="dropdown-content">Task manager</span>
-                                        <div class="dropdown-addon"><i class="mdi mdi-chevron-right align-middle"></i>
-                                        </div>
-                                    </a>
-                                    <div class="dropdown-submenu-menu dropdown-submenu-end">
-                                        <a href="#" class="dropdown-item"><i class="dropdown-bullet"></i> <span
-                                                class="dropdown-content">Show task</span> </a>
-                                        <a href="#" class="dropdown-item"><i class="dropdown-bullet"></i> <span
-                                                class="dropdown-content">Assign task</span> </a>
-                                        <a href="#" class="dropdown-item"><i class="dropdown-bullet"></i> <span
-                                                class="dropdown-content">Assign member</span> </a>
-                                        <a href="#" class="dropdown-item"><i class="dropdown-bullet"></i> <span
-                                                class="dropdown-content">Completed task</span> </a>
-                                        <a href="#" class="dropdown-item"><i class="dropdown-bullet"></i> <span
-                                                class="dropdown-content">Urgent task</span></a>
-                                    </div>
-                                </div>
-                                <a href="#" class="dropdown-item">
-                                    <div class="dropdown-icon"><i class="fa fa-dollar-sign"></i></div>
-                                    <span class="dropdown-content">Invoice</span>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="apps-contact.html" class="dropdown-item">
-                                    <div class="dropdown-icon"><i class="fa fa-user-cog"></i></div>
-                                    <span class="dropdown-content">My Account</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dropdown d-none d-lg-block">
-                            <button type="button" class="btn btn-primary btn-sm fs-14" data-bs-toggle="dropdown"
-                                aria-haspopup="false" aria-expanded="false">
-                                Features
-                                <i class="mdi mdi-chevron-down align-middle"></i>
-                            </button>
-                            <div
-                                class="dropdown-menu dropdown-menu-start dropdown-menu-lg-widest dropdown-menu-widest dropdown-menu-animated bg-primary-subtle overflow-hidden">
-                                <div class="dropdown-row justify-content-center">
-                                    <div class="p-2 menu-image">
-                                        <img src="assets/images/mega-menu.png" alt="mega-menu image" class="img-fluid"
-                                            style="height: 200px;">
-                                    </div>
-                                    <div class="dropdown-col">
-                                        <h2 class="">Welcome back!</h2>
-                                        <p class="text-muted mb-0">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium,
-                                            commodi hic qui aspernatur doloremque quos tempora placeat culpa illum,
-                                            voluptatibus delectus provident cumque
-                                            aliquid enim, laborum aliquam. Quod, perferendis unde.
-                                        </p>
-                                        <div class="mt-3">
-                                            <a href="auth-login.html" class="btn btn-dark btn-wider">Login</a>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-col border-start border-primary border-opacity-50">
-                                        <h4 class="dropdown-header">Features</h4>
-                                        <div class="grid-nav grid-nav-action">
-                                            <div class="grid-nav-row">
-                                                <a href="index.html" class="grid-nav-item">
-                                                    <div class="grid-nav-icon"><i class="far fa-window-restore"></i>
-                                                    </div>
-                                                    <span class="grid-nav-content">Dashboard</span>
-                                                </a>
-                                                <a href="apps-kanban.html" class="grid-nav-item">
-                                                    <div class="grid-nav-icon"><i class="far fa-clipboard"></i></div>
-                                                    <span class="grid-nav-content">TODO List</span>
-                                                </a>
-                                                <a href="#" class="grid-nav-item">
-                                                    <div class="grid-nav-icon"><i class="far fa-question-circle"></i>
-                                                    </div>
-                                                    <span class="grid-nav-content">Help Center</span>
-                                                </a>
-                                            </div>
-                                            <div class="grid-nav-row">
-                                                <a href="#" class="grid-nav-item">
-                                                    <div class="grid-nav-icon"><i class="far fa-images"></i></div>
-                                                    <span class="grid-nav-content">Gallery</span>
-                                                </a>
-                                                <a href="#" class="grid-nav-item">
-                                                    <div class="grid-nav-icon"><i class="far fa-chart-bar"></i></div>
-                                                    <span class="grid-nav-content">Scrumboard</span>
-                                                </a>
-                                                <a href="#" class="grid-nav-item">
-                                                    <div class="grid-nav-icon"><i class="far fa-bookmark"></i></div>
-                                                    <span class="grid-nav-content">Docs</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-col border-start border-primary border-opacity-50">
-                                        <h4 class="dropdown-header">Tools</h4>
-                                        <a href="#" class="dropdown-item"><i
-                                                class="mdi mdi-checkbox-blank-circle align-middle dropdown-bullet me-2"></i>
-                                            <span class="dropdown-content">Components</span> </a>
-                                        <a href="#" class="dropdown-item"><i
-                                                class="mdi mdi-checkbox-blank-circle align-middle dropdown-bullet me-2"></i>
-                                            <span class="dropdown-content">Form Wizard</span> </a>
-                                        <a href="#" class="dropdown-item"><i
-                                                class="mdi mdi-checkbox-blank-circle align-middle dropdown-bullet me-2"></i>
-                                            <span class="dropdown-content">Documentation</span> </a>
-                                        <a href="#" class="dropdown-item"><i
-                                                class="mdi mdi-checkbox-blank-circle align-middle dropdown-bullet me-2"></i>
-                                            <span class="dropdown-content">Knowledge Base</span> </a>
-                                        <a href="#" class="dropdown-item"><i
-                                                class="mdi mdi-checkbox-blank-circle align-middle dropdown-bullet me-2"></i>
-                                            <span class="dropdown-content">Inventory Manager</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- <div>
+                            <h4 class="fs-16 fw-semibold mb-1 mb-md-2">TICER_<span class="text-primary">JOB_PORTAL
+                                </span></h4>
+                        </div> -->
                     </div>
 
                     <div class="d-flex align-items-center gap-2">
@@ -478,7 +336,8 @@
                         <!-- End Profile -->
                     </div>
                 </div>
-                <!-- End menu -->
+                <!-- End Profile navbar -->
+
             </div>
         </header>
         <!-- End topbar -->
@@ -493,22 +352,14 @@
                     <!-- Left Menu Start -->
                     <ul class="left-menu list-unstyled" id="side-menu">
                         <li>
-                            <a href="index.html" class="">
+                            <a href="dashboard.php" class="">
                                 <i class="fas fa-desktop"></i>
                                 <span>USER Dashboard</span>
                             </a>
                         </li>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
                          <li class="menu-title">Profile</li>
 
 
-=======
-                        <li class="menu-title">Profile</li>
->>>>>>> Stashed changes
-=======
-                        <li class="menu-title">Profile</li>
->>>>>>> Stashed changes
                         <li>
                             <a href="javascript: void(0);" class="has-arrow ">
                                 <i class="fa fa-palette"></i>
@@ -519,17 +370,11 @@
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i>Profile_Form</a></li>
                                 <li><a href="./view_profile.html"><i
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i>View Profile</a></li>
+                                             <li><a href="./temp.html"><i
+                                            class="mdi mdi-checkbox-blank-circle align-middle"></i>temp Profile</a></li>
                             </ul>
                         </li>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
                          <li class="menu-title">jobs</li>
-=======
-                        <li class="menu-title">jobs</li>
->>>>>>> Stashed changes
-=======
-                        <li class="menu-title">jobs</li>
->>>>>>> Stashed changes
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow ">
@@ -537,28 +382,13 @@
                                 <span>Apply Jobs</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="auth-login.html"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
+                                <li><a href="./jobsPortal.html"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
                                         view job</a></li>
                                 <li><a href="auth-register.html"><i
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i>Applied list</a></li>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
                             </ul>
                         </li>
                          <li class="menu-title">Pages</li>
-=======
-                                <li><a href="auth-register.html"><i
-                                            class="mdi mdi-checkbox-blank-circle align-middle"></i>Applied list</a></li>
-                            </ul>
-                        </li>
-=======
-                                <li><a href="auth-register.html"><i
-                                            class="mdi mdi-checkbox-blank-circle align-middle"></i>Applied list</a></li>
-                            </ul>
-                        </li>
->>>>>>> Stashed changes
-                        <li class="menu-title">Pages</li>
->>>>>>> Stashed changes
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow ">
@@ -566,16 +396,10 @@
                                 <span>Authentication</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="auth-login.html"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
+                                <li><a href="./signIn.html"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
                                         Login</a></li>
-                                <li>
-                                    <a href="auth-register.html"><i
-                                            class="mdi mdi-checkbox-blank-circle align-middle"></i> Register</a>
-                                </li>
-                                <li>
-                                    <a href="./logout.html"><i
-                                            class="mdi mdi-checkbox-blank-circle align-middle"></i> Logout</a>
-                                </li>
+                                <li><a href="./register.html"><i
+                                            class="mdi mdi-checkbox-blank-circle align-middle"></i> Register</a></li>
                             </ul>
                         </li>
 
@@ -644,7 +468,7 @@
                                         <!-- Tab1 Personal info  -->
                                         <div id="personal" class="data-section active">
                                             <p>Personal Information Table</p>
-                                            <form style="font-size: 12px;">
+                                            <form method="POST" action="save-profile.php" style="font-size: 12px;">
 
                                                 <!-- Row 1 -->
                                                 <div class="needs-validation">
@@ -652,21 +476,23 @@
                                                         <div class="col-md-3">
                                                             <label for="firstName" class="form-label">First Name
                                                                 *</label>
-                                                            <input type="text" class="form-control" id="firstName">
+                                                            <input type="text" name="user_profile_first_name" class="form-control" id="firstName"
+                                                                required>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for="lastName" class="form-label">Last Name *</label>
-                                                            <input type="text" class="form-control" id="lastName">
+                                                            <input type="text" name="user_profile_last_name" class="form-control" id="lastName"
+                                                                required>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for="dob" class="form-label">Date of
                                                                 Birth *</label>
-                                                            <input type="date" class="form-control" id="dob">
+                                                            <input type="date" name="user_profile_birth" class="form-control" id="dob" required>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for="age" class="form-label">Age
                                                                 *</label>
-                                                            <input type="text" class="form-control" id="age" >
+                                                            <input type="text" name="user_profile_age" class="form-control" id="age" required>
                                                         </div>
 
                                                     </div>
@@ -674,10 +500,10 @@
 
                                                 <!-- Row 2 -->
                                                 <div class="needs-validation">
-                                                    <div class="row pb-2">
+                                                   <div class="row pb-2">
                                                         <div class="col-md-3">
                                                             <label for="gender" class="form-label">Gender *</label>
-                                                            <select class="form-select" id="gender">
+                                                            <select class="form-select" name="user_profile_gender" id="gender" required>
                                                                 <option selected disabled>Select Gender
                                                                 </option>
                                                                 <option>Male</option>
@@ -687,26 +513,20 @@
                                                         <div class="col-md-3">
                                                             <label for="maritalStatus" class="form-label">Marital
                                                                 Status</label>
-                                                            <select class="form-select" id="maritalStatus">
+                                                            <select class="form-select" name="user_profile_marital_status" id="maritalStatus" required>
                                                                 <option>Single</option>
                                                                 <option>Married</option>
                                                             </select>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for="husbandName" class="form-label">Husband Name
-                                                                </label>
-                                                            <input type="text" class="form-control" id="husbandName">
+                                                            </label>
+                                                            <input type="text" name="user_profile_husband_name" class="form-control" id="husbandName">
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <label for="fatherName" class="form-label">Father's Name
-                                                                *</label>
-                                                            <input type="text" class="form-control" id="fatherName"
-                                                                placeholder="Father Name">
+                                                            <label for="fatherName" class="form-label">Father's Name *</label>
+                                                            <input type="text" name="user_profile_father_name" class="form-control" id="fatherName" placeholder="Father Name" required>
                                                         </div>
-
-
-
-
                                                     </div>
                                                 </div>
 
@@ -715,9 +535,8 @@
                                                     <div class="row pb-2">
                                                         <div class="col-md-3">
                                                             <label for="religion" class="form-label">Religion</label>
-                                                            <select class="form-select" id="religion">
-                                                                <option selected disabled>Select
-                                                                    Religion</option>
+                                                            <select class="form-select" name="user_profile_religion" id="religion" required>
+                                                                <option selected disabled>Select Religion</option>
                                                                 <option>Islam</option>
                                                                 <option>Christianity</option>
                                                                 <option>Hinduism</option>
@@ -725,33 +544,25 @@
                                                             </select>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <label for="mobileNumber" class="form-label">Mobile Number
-                                                                *</label>
-                                                            <input type="text" class="form-control"
-                                                                placeholder="0311-1234567" id="mobileNumber">
-                                                            <div class="form-note  text-danger" style="font-size: 8px;">
+                                                            <label for="mobileNumber" class="form-label">Mobile Number *</label>
+                                                            <input type="text" name="user_profile_phonenum" class="form-control" placeholder="0311-1234567" id="mobileNumber" required>
+                                                            <!-- <div class="form-note  text-danger" style="font-size: 8px;">
                                                                 Number should be
-                                                                registered on Candidate own CNIC</div>
+                                                                registered on Candidate own CNIC</div> -->
                                                         </div>
 
                                                         <div class="col-md-3">
                                                             <label for="landline" class="form-label">Land Line</label>
-                                                            <input type="text" class="form-control"
-                                                                placeholder="+92-111111111" id="landline">
-                                                            <div class="form-note text-danger" style="font-size: 8px;">
-                                                                For
-                                                                example
-                                                                +92-111111111</div>
+                                                            <input type="text" name="user_profile_landline" class="form-control" placeholder="+92-111111111" id="landline" required>
+                                                            <div class="form-note text-danger" style="font-size: 8px;"> For example +92-111111111</div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for="postalAddress" class="form-label">Postal Address
                                                                 *</label>
-                                                            <input type="text" class="form-control " id="postalAddress"
+                                                            <input type="text" name="user_profile_postaladr" class="form-control " id="postalAddress"
+                                                                required
                                                                 placeholder="House #4, A block, Johar Town, Lahore">
                                                         </div>
-
-
-
                                                     </div>
                                                 </div>
 
@@ -761,14 +572,14 @@
                                                         <div class="col-md-3">
                                                             <label for="cnic" class="form-label">CNIC
                                                                 *</label>
-                                                            <input type="text" class="form-control" id="cnic">
+                                                            <input type="text" name="user_profile_cnic" class="form-control" id="cnic" required>
                                                         </div>
 
                                                         <div class="col-md-3">
                                                             <label for="cnicExpiry" class="form-label">Select CNIC
                                                                 Expiry
                                                                 *</label>
-                                                            <select class="form-select" id="cnicExpiry">
+                                                            <select class="form-select" name="user_profile_cnic_expery" id="cnicExpiry" required>
                                                                 <option selected disabled>-- Select
                                                                     Expiry --</option>
                                                                 <option>2025</option>
@@ -779,16 +590,18 @@
                                                         <div class="col-md-3">
                                                             <label for="cnicFront" class="form-label">Attach CNIC Front
                                                                 Attachment</label>
-                                                            <input class="form-control" type="file" id="cnicFront">
-                                                            <div class="form-note text-danger" style="font-size: 8px;">
+                                                            <input class="form-control" name="user_profile_cnic_front" type="file" id="cnicFront"
+                                                                required>
+                                                            <!-- <div class="form-note text-danger" style="font-size: 8px;">
                                                                 Scanned Document
                                                                 Max:2MB (Only jpg,jpeg,png & pdf
-                                                                allowed)</div>
+                                                                allowed)</div> -->
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for="cnicBack" class="form-label">Attach CNIC Back
                                                                 Attachment</label>
-                                                            <input class="form-control small" type="file" id="cnicBack">
+                                                            <input class="form-control small" name="user_profile_cnic_back" type="file" id="cnicBack"
+                                                                >
                                                             <div class="form-note text-danger" style="font-size: 8px;">
                                                                 Scanned Document
                                                                 Max:2MB (Only jpg,jpeg,png & pdf
@@ -803,7 +616,7 @@
 
                                                         <div class="col-md-3">
                                                             <label for="domicile" class="form-label">Domicile *</label>
-                                                            <select class="form-select" id="domicile">
+                                                            <select class="form-select" name="user_profile_domicile" id="domicile" required>
                                                                 <option selected>Not Applicable (N/A)
                                                                 </option>
                                                                 <option>Lahore</option>
@@ -814,15 +627,17 @@
                                                         <div class="col-md-3">
                                                             <label for="domicileNumber" class="form-label">Domicile
                                                                 Number</label>
-                                                            <input type="text" class="form-control" id="domicileNumber">
-                                                            <div class="form-note text-danger" style="font-size: 8px;">
+                                                            <input type="text" class="form-control" name="user_profile_domicilenum" id="domicileNumber"
+                                                                required>
+                                                            <!-- <div class="form-note text-danger" style="font-size: 8px;">
                                                                 Digital domicile
-                                                                is mandatory</div>
+                                                                is mandatory</div> -->
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for="domicileFile"
                                                                 class="form-label">Domicile</label>
-                                                            <input class="form-control" type="file" id="domicileFile">
+                                                            <input class="form-control" name="user_profile_domicile_file" type="file" id="domicileFile"
+                                                                >
                                                             <div class="form-note text-danger" style="font-size: 8px;">
                                                                 Scanned Document
                                                                 Max:2MB (Only jpg,jpeg,png & pdf
@@ -833,60 +648,42 @@
                                                 </div>
 
                                                 <!-- Row 6 -->
-                                                <form class="needs-validation" novalidate>
-                                                    <div class="row pb-2">
-                                                        <div class="col-md-3">
-                                                            <label for="licenseNumber" class="form-label">Driving
-                                                                License Number</label>
-                                                            <input type="text" class="form-control" id="licenseNumber"
-                                                                required>
-                                                            <div class="invalid-feedback">
+
+                                                <div class="row pb-2">
+                                                    <div class="col-md-3">
+                                                        <label for="licenseNumber" class="form-label">Driving
+                                                            License Number</label>
+                                                        <input type="text" name="user_profile_driving_license" class="form-control" id="licenseNumber"
+                                                            required>
+                                                        <!-- <div class="invalid-feedback">
                                                                 Only Punjab Driving License allowed
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <label for="licenseFront" class="form-label">Driving License
-                                                                Front</label>
-                                                            <input type="file" class="form-control" id="licenseFront"
-                                                                required>
-                                                            <div class="invalid-feedback">
-                                                                Scanned Document Max: 2MB (Only jpg, jpeg, png & pdf
-                                                                allowed)
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <label for="licenseBack" class="form-label">Driving License
-                                                                Back</label>
-                                                            <input type="file" class="form-control" id="licenseBack"
-                                                                required>
-                                                            <div class="invalid-feedback">
-                                                                Scanned Document Max: 2MB (Only jpg, jpeg, png & pdf
-                                                                allowed)
-                                                            </div>
+                                                            </div> -->
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="licenseFront" class="form-label">Driving License
+                                                            Front</label>
+                                                        <input type="file" name="user_profile_license_front" class="form-control" id="licenseFront"
+                                                            >
+                                                        <div class="invalid-feedback">
+                                                            Scanned Document Max: 2MB (Only jpg, jpeg, png & pdf
+                                                            allowed)
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-3">
+                                                        <label for="licenseBack" class="form-label">Driving License
+                                                            Back</label>
+                                                        <input type="file" name="user_profile_license_back" class="form-control" id="licenseBack"
+                                                            >
+                                                        <div class="invalid-feedback">
+                                                            Scanned Document Max: 2MB (Only jpg, jpeg, png & pdf
+                                                            allowed)
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                                   
-                                                </form>
 
-                                                <script>
-                                                    // Bootstrap 5 validation handling
-                                                    (() => {
-                                                        'use strict';
-                                                        const forms = document.querySelectorAll('.needs-validation');
 
-                                                        Array.from(forms).forEach(form => {
-                                                            form.addEventListener('submit', event => {
-                                                                if (!form.checkValidity()) {
-                                                                    event.preventDefault();
-                                                                    event.stopPropagation();
-                                                                }
 
-                                                                form.classList.add('was-validated');
-                                                            }, false);
-                                                        });
-                                                    })();
-                                                </script>
 
 
                                                 <!-- Row 7 -->
@@ -894,7 +691,7 @@
                                                     <div class="row pb-2">
                                                         <div class="col-md-3">
                                                             <label for="religion" class="form-label">Nationality</label>
-                                                            <select class="form-select" id="religion">
+                                                            <select class="form-select" name="user_profile_nationality" id="religion" required>
                                                                 <option selected disabled>Select
                                                                     Nationality</option>
                                                                 <option>Afghan</option>
@@ -912,14 +709,13 @@
                                                                 <option>Bangladeshi</option>
                                                                 <option>Pakistani</option>
                                                                 <option>Indian</option>
-
-
                                                             </select>
                                                         </div>
+
                                                         <div class="col-md-3">
                                                             <label for="religion" class="form-label">Residential
                                                                 Country</label>
-                                                            <select class="form-select" id="religion">
+                                                            <select class="form-select" name="user_profile_reside_country" id="religion" required>
                                                                 <option selected disabled>Select Country
                                                                 </option>
                                                                 <option>Afghan</option>
@@ -944,7 +740,8 @@
                                                         <div class="col-md-3">
                                                             <label for="firstName" class="form-label">Residential City
                                                                 *</label>
-                                                            <input type="text" class="form-control" id="firstName">
+                                                            <input type="text" name="user_profile_reside_city" class="form-control" id="firstName"
+                                                                required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -956,17 +753,19 @@
                                                             <label for="domicileNumber" class="form-label">Police
                                                                 Character
                                                                 Certificate Number</label>
-                                                            <input type="text" class="form-control" id="domicileNumber">
-                                                            <div class="form-note text-danger" style="font-size: 8px;">
+                                                            <input type="text" name="user_profile_certificatenum" class="form-control" id="domicileNumber"
+                                                                required>
+                                                            <!-- <div class="form-note text-danger" style="font-size: 8px;">
                                                                 Only
                                                                 Punjab
-                                                                Driving License allowed</div>
+                                                                Driving License allowed</div> -->
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for="domicileFile" class="form-label">Police
                                                                 Character
-                                                                Certificate Attachment</label>
-                                                            <input class="form-control" type="file" id="domicileFile">
+                                                                Certificate Attach</label>
+                                                            <input class="form-control" name="user_profile_certificate_attach" type="file" id="domicileFile"
+                                                                >
                                                             <div class="form-note text-danger" style="font-size: 8px;">
                                                                 Scanned Document
                                                                 Max:2MB (Only jpg,jpeg,png & pdf
@@ -975,7 +774,7 @@
                                                         <div class="col-md-3">
                                                             <label for="religion"
                                                                 class="form-label">Hafiz-e-Quran</label>
-                                                            <select class="form-select" id="religion">
+                                                            <select class="form-select" name="user_profile_hafiz" id="religion" required>
                                                                 <option selected disabled>No</option>
                                                                 <option>Nothing Selected</option>
                                                                 <option>Yes</option>
@@ -994,7 +793,7 @@
                                                         <div class="col-md-3">
                                                             <label for="religion" class="form-label">Ex-Service
                                                                 Official</label>
-                                                            <select class="form-select" id="religion">
+                                                            <select class="form-select" name="user_profile_exservice" id="religion" required>
                                                                 <option selected disabled>No</option>
                                                                 <option>Nothing Selected</option>
                                                                 <option>Yes</option>
@@ -1002,12 +801,12 @@
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for=""> Are you Disabled?</label>
-                                                            <input type="checkbox">
+                                                            <input type="checkbox" name="user_profile_disable">
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for=""> Are you Governmenr Servent
                                                                 Son/daughter?</label>
-                                                            <input type="checkbox">
+                                                            <input type="checkbox" name="user_profile_servent">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1018,7 +817,7 @@
                                                         <div class="col-md-3">
                                                             <label for=""> Are you a Government
                                                                 Official?</label>
-                                                            <input type="checkbox">
+                                                            <input type="checkbox" name="user_profile_official">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1028,8 +827,8 @@
                                                     <div class="row">
                                                         <div class="col">
                                                             <label for=""> Objective</label>
-                                                            <textarea class="form-control" id="" name=""
-                                                                rows="4"></textarea>
+                                                            <textarea class="form-control" id="" name="user_profile_objective" rows="4"
+                                                                required></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1041,6 +840,11 @@
 
                                                 <hr>
 
+                                              <a href="cv.php?user_profile_id=<?= $user['user_profile_id'] ?>" class="btn btn-primary">View CV</a>
+
+
+
+<hr>
                                                 <div>
                                                     <a href="#" class="btn btn-success">Prev</a>
                                                     <a href="#" class="btn btn-success">Next</a>
@@ -1049,7 +853,30 @@
 
                                             </form>
 
+                                            <!-- <script>
+                                                    // Bootstrap 5 validation handling
+                                                    (() => {
+                                                        'use strict';
+                                                        const forms = document.querySelectorAll('.needs-validation');
+
+                                                        Array.from(forms).forEach(form => {
+                                                            form.addEventListener('submit', event => {
+                                                                if (!form.checkValidity()) {
+                                                                    event.preventDefault();
+                                                                    event.stopPropagation();
+                                                                }
+
+                                                                form.classList.add('was-validated');
+                                                            }, false);
+                                                        });
+                                                    })();
+                                                </script> -->
+
+
                                         </div>
+
+
+
 
                                         <!-- Tab2 Experience -->
                                         <div id="experience" class="data-section">
@@ -1080,6 +907,8 @@
                                                     </thead>
                                                     <tbody>
 
+
+                                                       
                                                     </tbody>
                                                 </table>
 
@@ -1103,7 +932,7 @@
                                             <div class="modal fade" id="addForm" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
-                                                        <form>
+                                                        <form method="POST" action="save_experience.php" id="experienceForm" enctype="multipart/form-data">
                                                             <div class="modal-header bg-success text-white">
                                                                 <h5 class="modal-title">Add Job Information</h5>
                                                                 <button type="button" class="btn-close btn-close-white"
@@ -1111,26 +940,26 @@
                                                             </div>
 
                                                             <div class="modal-body">
-                                                                <div class="row g-3">
+                                                              <div class="row g-3">
                                                                     <div class="col-md-4">
                                                                         <label class="form-label">Position Title</label>
-                                                                        <input type="text" class="form-control">
+                                                                        <input type="text" name="position_title" class="form-control">
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <label class="form-label">From</label>
-                                                                        <input type="date" class="form-control">
+                                                                        <input type="date" name="from_date" class="form-control">
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <label class="form-label">To</label>
-                                                                        <input type="date" class="form-control">
+                                                                        <input type="date" name="to_date" class="form-control">
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <label class="form-label">Company Name</label>
-                                                                        <input type="text" class="form-control">
+                                                                        <input type="text" name="company_name" class="form-control">
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <label class="form-label">Job Level</label>
-                                                                        <select class="form-select">
+                                                                        <select class="form-select" name="job_level">
                                                                             <option>Select Job Level</option>
                                                                             <option>Entry Level</option>
                                                                             <option>Mid Level</option>
@@ -1138,8 +967,8 @@
                                                                         </select>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label class="form-label">Country</label>
-                                                                        <select class="form-select">
+                                                                        <label class="form-label">country</label>
+                                                                        <select class="form-select" name="country">
                                                                             <option>Select Country</option>
                                                                             <option>Pakistan</option>
                                                                             <option>UAE</option>
@@ -1149,7 +978,7 @@
                                                                     <div class="col-12">
                                                                         <label class="form-label">Experience
                                                                             Certificate</label>
-                                                                        <input type="file" class="form-control">
+                                                                        <input type="file" name="experience_certificate" class="form-control">
                                                                         <small class="text-danger">Attachment (Max: 2MB
                                                                             & Only jpg, jpeg, png, pdf
                                                                             allowed)</small>
@@ -1177,7 +1006,7 @@
                                                             </div>
 
                                                             <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-success">Save &
+                                                                <button type="submit" name="savebtn" class="btn btn-success">Save &
                                                                     Continue</button>
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Exit</button>
@@ -2502,6 +2331,78 @@
             });
         });
     </script>
+
+
+<!-- vhlabvjakvgkj -->
+
+<script>
+    $(document).ready(function () {
+        // Show modal on Add button click
+        $('#addBtn').click(function () {
+            var modal = new bootstrap.Modal(document.getElementById('addForm'));
+            modal.show();
+        });
+
+        // Initialize CKEditor only when modal is shown
+        $('#addForm').on('shown.bs.modal', function () {
+            if (!CKEDITOR.instances['jobDesc']) {
+                CKEDITOR.replace('jobDesc');
+            }
+        });
+
+        // Destroy CKEditor when modal is hidden
+        $('#addForm').on('hidden.bs.modal', function () {
+            if (CKEDITOR.instances['jobDesc']) {
+                CKEDITOR.instances['jobDesc'].destroy(true);
+            }
+
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        });
+
+        // ✅ AJAX submit on form save
+        $('#experienceForm').on('submit', function (e) {
+            e.preventDefault();
+
+            var formData = new FormData(this);
+            formData.set('job_responsibilities', CKEDITOR.instances['jobDesc'].getData());
+
+            fetch('save_experience.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    let row = `
+                        <tr>
+                            <td>${data.experience.position_title}</td>
+                            <td>${data.experience.from_date}</td>
+                            <td>${data.experience.to_date}</td>
+                            <td>${data.experience.company_name}</td>
+                            <td>${data.experience.job_level}</td>
+                            <td>${data.experience.job_responsibilities}</td>
+                            <td><button class="btn btn-sm btn-danger">Delete</button></td>
+                        </tr>
+                    `;
+                    $('#work_history_table tbody').append(row);
+
+                    // Close modal and reset
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('addForm'));
+                    modal.hide();
+
+                    this.reset();
+                    CKEDITOR.instances['jobDesc'].setData('');
+                } else {
+                    alert("Error: " + data.message);
+                }
+            })
+            .catch(err => alert("Failed: " + err));
+        });
+    });
+</script>
+
+
 
 
 

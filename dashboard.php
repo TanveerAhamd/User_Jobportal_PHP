@@ -1,3 +1,11 @@
+<?php
+session_start();
+ob_start();
+if (!isset($_SESSION['user_register_btn'])) {
+    header("Location: index.php");
+    exit();
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -5,7 +13,7 @@
 
     <meta charset="utf-8" />
     <title>Login | TEF - User & Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Codebucks" name="author" />
     <!-- App favicon -->
@@ -48,6 +56,8 @@
 
 
         <!-- Start topbar -->
+
+
         <header id="page-topbar">
             <div class="navbar-header">
 
@@ -56,7 +66,7 @@
                 <!-- Start Navbar-Brand -->
 
                 <div class="navbar-logo-box">
-                    <a href="index.html" class="logo logo-dark">
+                    <a href="dashboard.php" class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="assets/images/logo-sm.png" alt="logo-sm-dark" height="20">
                         </span>
@@ -65,7 +75,7 @@
                         </span>
                     </a>
 
-                    <a href="index.html" class="logo logo-light">
+                    <a href="dashboard.php" class="logo logo-light">
                         <span class="logo-sm">
                             <img src="assets/images/logo-sm.png" alt="logo-sm-light" height="20">
                         </span>
@@ -295,7 +305,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer card-footer-bordered rounded-0"><a href="auth-login.html"
+                                    <div class="card-footer card-footer-bordered rounded-0"><a href="signout.php"
                                             class="btn btn-label-danger">Sign out</a></div>
                                 </div>
                             </div>
@@ -319,22 +329,26 @@
                     <!-- Left Menu Start -->
                     <ul class="left-menu list-unstyled" id="side-menu">
                         <li>
-                            <a href="index.html" class="">
+                            <a href="dashboard.php" class="">
                                 <i class="fas fa-desktop"></i>
                                 <span>USER Dashboard</span>
                             </a>
                         </li>
                         <li class="menu-title">Profile</li>
+
+
                         <li>
                             <a href="javascript: void(0);" class="has-arrow ">
                                 <i class="fa fa-palette"></i>
                                 <span>Build Profile</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="profile_builder_form_wizard.html"><i
+                                <li><a href="pages/profile_builder_form_wizard.php"><i
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i>Profile_Form</a></li>
-                                <li><a href="./view_profile.html"><i
+                                <li><a href="pages/view_profile.php"><i
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i>View Profile</a></li>
+                                <li><a href="./temp.html"><i
+                                            class="mdi mdi-checkbox-blank-circle align-middle"></i>temp Profile</a></li>
                             </ul>
                         </li>
                         <li class="menu-title">jobs</li>
@@ -345,7 +359,7 @@
                                 <span>Apply Jobs</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="auth-login.html"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
+                                <li><a href="./jobsPortal.html"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
                                         view job</a></li>
                                 <li><a href="auth-register.html"><i
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i>Applied list</a></li>
@@ -359,9 +373,9 @@
                                 <span>Authentication</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="auth-login.html"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
+                                <li><a href="./signIn.html"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
                                         Login</a></li>
-                                <li><a href="auth-register.html"><i
+                                <li><a href="./register.html"><i
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i> Register</a></li>
                             </ul>
                         </li>
@@ -379,32 +393,210 @@
         <div class="main-content ">
             <div class="page-content">
                 <div class="container-fluid">
-
-                </div>
-                <!-- End Page-content -->
-
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row align-items-center">
-                            <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © TICER_JOB_PORTAL.
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="text-sm-end d-none d-sm-block">
-                                    Crafted with <i class="mdi mdi-heart text-danger"></i> by <a target="_blank"
-                                        href="https://www.ticer.pk" target="_blank" class="text-muted">TICER</a>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <div>
+                                    <h4 class="fs-16 fw-semibold mb-1 mb-md-2">Good Morning,  <?php echo htmlspecialchars($_SESSION['user_register_btn']); ?>! </h4>
+                                    <p class="text-muted mb-0">Here's what's happening with your store today.</p>
+                                </div>
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">TICER_JOB_PORTAL</a>
+                                        </li>
+                                        <li class="breadcrumb-item active">Dashboard</li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </footer>
+                    <!--    end row -->
+                    <div class="px-3">
+                        <div class="row">
+                            <div class="col-xxl-9">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-icon">
+                                            <i class="fas fa-desktop fs-14 text-muted"></i>
+                                        </div>
+                                        <h4 class="card-title mb-0">Over All Statics</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
 
+                                            <div class="col-xl-3">
+                                                <div class="card bg-danger-subtle"
+                                                    style="background: url('assets/images/dashboard/dashboard-shape-1.png'); background-repeat: no-repeat; background-position: bottom center; ">
+                                                    <div class="card-body">
+                                                        <div class="d-flex">
+                                                            <div class="avatar avatar-sm avatar-label-danger">
+                                                                <i class="mdi mdi-buffer mt-1"></i>
+                                                            </div>
+                                                            <div class="ms-3">
+                                                                <p class="text-danger mb-1">Total balance</p>
+                                                                <h4 class="mb-0">$1,452.55</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="hstack gap-2 mt-3">
+                                                            <button class="btn btn-light">Transfer</button>
+                                                            <button class="btn btn-info">Request</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3">
+                                                <div class="card bg-success-subtle"
+                                                    style="background: url('assets/images/dashboard/dashboard-shape-2.png'); background-repeat: no-repeat; background-position: bottom center; ">
+                                                    <div class="card-body">
+                                                        <div class="d-flex">
+                                                            <div class="avatar avatar-sm avatar-label-success">
+                                                                <i class="mdi mdi-cash-usd-outline mt-1"></i>
+                                                            </div>
+                                                            <div class="ms-3">
+                                                                <p class="text-success mb-1">Upcoming $</p>
+                                                                <h4 class="mb-0">$120</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mt-3 mb-2">
+                                                            <p class="mb-0">4 not confirmed</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3">
+                                                <div class="card bg-danger-subtle"
+                                                    style="background: url('assets/images/dashboard/dashboard-shape-1.png'); background-repeat: no-repeat; background-position: bottom center; ">
+                                                    <div class="card-body">
+                                                        <div class="d-flex">
+                                                            <div class="avatar avatar-sm avatar-label-danger">
+                                                                <i class="mdi mdi-buffer mt-1"></i>
+                                                            </div>
+                                                            <div class="ms-3">
+                                                                <p class="text-danger mb-1">Total balance</p>
+                                                                <h4 class="mb-0">$1,452.55</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="hstack gap-2 mt-3">
+                                                            <button class="btn btn-light">Transfer</button>
+                                                            <button class="btn btn-info">Request</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3">
+                                                <div class="card bg-info-subtle"
+                                                    style="background: url('assets/images/dashboard/dashboard-shape-3.png'); background-repeat: no-repeat; background-position: bottom center; ">
+                                                    <div class="card-body">
+                                                        <div class="d-flex">
+                                                            <div class="avatar avatar-sm avatar-label-info">
+                                                                <i class="mdi mdi-webhook mt-1"></i>
+                                                            </div>
+                                                            <div class="ms-3">
+                                                                <p class="text-info mb-1">Finished appt.</p>
+                                                                <h4 class="mb-0">72</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mt-3 mb-2">
+                                                            <p class="mb-0"><span class="text-primary me-2 fs-14"><i
+                                                                        class="fas fa-caret-up me-1"></i>3.4%</span>vs
+                                                                last
+                                                                month
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end row -->
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card ">
+                                            <div class="card-header">
+                                                <div class="card-icon">
+                                                    <i class="fas fa-desktop fs-14 text-muted"></i>
+                                                </div>
+                                                <h4 class="card-title mb-0">Employee Data Table</h4>
+                                            </div>
+                                            <div class="card-body waves-block">
+                                                <table id="datatable-buttons"
+                                                    class="table table-hover table-bordered table-striped dt-responsive nowrap"
+                                                    style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Sr.#</th>
+                                                            <th>Name</th>
+                                                            <th>Position</th>
+                                                            <th>Office</th>
+                                                            <th>Age</th>
+                                                            <th>Start date</th>
+                                                            <th>Salary</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                        <tr>
+                                                            <td>01</td>
+                                                            <td>Prescott Bartlett</td>
+                                                            <td>Technical Author</td>
+                                                            <td>London</td>
+                                                            <td>27</td>
+                                                            <td>2011-05-07</td>
+                                                            <td>$145,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>01</td>
+                                                            <td>Prescott Bartlett</td>
+                                                            <td>Technical Author</td>
+                                                            <td>London</td>
+                                                            <td>27</td>
+                                                            <td>2011-05-07</td>
+                                                            <td>$145,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>01</td>
+                                                            <td>Prescott Bartlett</td>
+                                                            <td>Technical Author</td>
+                                                            <td>London</td>
+                                                            <td>27</td>
+                                                            <td>2011-05-07</td>
+                                                            <td>$145,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>01</td>
+                                                            <td>Prescott Bartlett</td>
+                                                            <td>Technical Author</td>
+                                                            <td>London</td>
+                                                            <td>27</td>
+                                                            <td>2011-05-07</td>
+                                                            <td>$145,000</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div> <!-- end col -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- end container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                <!-- Footer start -->
+                <?php include('include/footer.html'); ?>
+                <!-- Footer end -->
             </div>
             <!-- end main content-->
         </div>
         <!-- end layout-wrapper -->
 
-
+    </div>
 
         <!-- JAVASCRIPT -->
         <script src="assets/libs/jquery/jquery.min.js"></script>
