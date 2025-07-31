@@ -1,21 +1,10 @@
 <?php
 // 1. Database connection
-$host = "localhost";
-$username = "root";
-$password = ""; // default is empty for XAMPP
-$database = "User-profile";
-
-// Create connection
-$conn = new mysqli($host, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include ('../include/config.php');
 
 // 2. Fetch data from Profile_builder table
 $sql = "SELECT * FROM Profile_builder";
-$result = $conn->query($sql);
+$result = $cn->query($sql);
 
 // 3. Display the data in table format
 if ($result->num_rows > 0) {
@@ -61,7 +50,10 @@ if ($result->num_rows > 0) {
 } else {
     echo "No records found.";
 }
+ 
 
-// 4. Close connection
-$conn->close();
+// 5. Close connection
+$cn->close();
 ?>
+
+

@@ -1,16 +1,6 @@
 <?php
 // 1. Connect to the database
-$host = "localhost";
-$username = "root";
-$password = ""; // Default for XAMPP
-$database = "User-profile";
-
-$conn = new mysqli($host, $username, $password, $database);
-
-// 2. Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include ('../include/config.php');
 
 // 3. Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -64,18 +54,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         '$disable', '$servent', '$official', '$objective'
     )";
 
-    // 5. Execute query
-    if ($conn->query($sql) === TRUE) {
-        // echo "✅ Profile data saved successfully!";
-        $inserted_id = $conn->insert_id;
-header("Location: cv.php?user_profile_id=$inserted_id");
-exit;
-
-    } else {
-        echo "❌ Error: " . $sql . "<br>" . $conn->error;
-    }
+//    if (isset($_POST['savebtn'])){
+//     header("Location: profile_builder_form_wizard.php");
+//    }
 
     // 6. Close connection
-    $conn->close();
+    $cn->close();
 }
 ?>

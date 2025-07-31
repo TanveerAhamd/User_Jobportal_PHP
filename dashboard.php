@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_register_btn'])) {
 
     <meta charset="utf-8" />
     <title>Login | TEF - User & Dashboard</title>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Codebucks" name="author" />
     <!-- App favicon -->
@@ -349,6 +349,7 @@ if (!isset($_SESSION['user_register_btn'])) {
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i>View Profile</a></li>
                                 <li><a href="./temp.html"><i
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i>temp Profile</a></li>
+                       
                             </ul>
                         </li>
                         <li class="menu-title">jobs</li>
@@ -359,7 +360,7 @@ if (!isset($_SESSION['user_register_btn'])) {
                                 <span>Apply Jobs</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="./jobsPortal.html"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
+                                <li><a href="pages/appliedjobs.php"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
                                         view job</a></li>
                                 <li><a href="auth-register.html"><i
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i>Applied list</a></li>
@@ -397,7 +398,7 @@ if (!isset($_SESSION['user_register_btn'])) {
                         <div class="col-12">
                             <div class="page-title-box d-flex align-items-center justify-content-between">
                                 <div>
-                                    <h4 class="fs-16 fw-semibold mb-1 mb-md-2">Good Morning,  <?php echo htmlspecialchars($_SESSION['user_register_btn']); ?>! </h4>
+                                    <h4 class="fs-16 fw-semibold mb-1 mb-md-2">Good Morning, <?php echo htmlspecialchars($_SESSION['user_register_btn']); ?>! </h4>
                                     <p class="text-muted mb-0">Here's what's happening with your store today.</p>
                                 </div>
                                 <div class="page-title-right">
@@ -598,44 +599,44 @@ if (!isset($_SESSION['user_register_btn'])) {
 
     </div>
 
-        <!-- JAVASCRIPT -->
-        <script src="assets/libs/jquery/jquery.min.js"></script>
-        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="assets/libs/node-waves/waves.min.js"></script>
+    <!-- JAVASCRIPT -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
 
-        <!-- Required datatable js -->
-        <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <!-- Required datatable js -->
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
 
-        <!-- buttons examples -->
-        <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <!-- buttons examples -->
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
 
-        <script src="assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
-        <script src="assets/libs/jszip/jszip.min.js"></script>
-        <script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
-        <script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
-        <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-        <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-        <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-        <!-- DataTables JS and Extensions -->
-        <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.flash.min.js"></script>
-        <!-- Responsive examples -->
-        <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="assets/libs/jszip/jszip.min.js"></script>
+    <script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <!-- DataTables JS and Extensions -->
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.flash.min.js"></script>
+    <!-- Responsive examples -->
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
 
-        <!-- Datatable init js -->
-        <script src="assets/js/pages/datatables-extension.init.js"></script>
+    <!-- Datatable init js -->
+    <script src="assets/js/pages/datatables-extension.init.js"></script>
 
-        <!-- apexcharts -->
-        <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+    <!-- apexcharts -->
+    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
 
-        <script src="assets/js/pages/dashboard.init.js"></script>
+    <script src="assets/js/pages/dashboard.init.js"></script>
 
-        <!-- App js -->
-        <script src="assets/js/app.js"></script>
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>

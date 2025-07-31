@@ -50,8 +50,12 @@
 
 
                                 <div class="input-group auth-form-group-custom mb-3">
-                                    <span class="input-group-text bg-primary bg-opacity-10 fs-16"><i class="mdi mdi-lock-outline"></i></span>
-                                    <input type="password" name="user_register_password" class="form-control" placeholder="Enter password" required>
+                                    <span class="input-group-text bg-primary bg-opacity-10 fs-16" id="basic-addon2"><i class="mdi mdi-lock-outline auti-custom-input-icon"></i></span>
+                                    <input type="password" class="form-control" id="validationCustom02" placeholder="Enter password" aria-label="Username" name="user_register_password" aria-describedby="basic-addon1" required>
+                                     <span id="toggleIcon" onclick="togglePassword()" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;">
+                                                    👁
+                                                </span>
+
                                 </div>
 
                                 <div class="mb-2">
@@ -90,6 +94,22 @@
     <script src="./assets/libs/simplebar/simplebar.min.js"></script>
     <script src="./assets/libs/node-waves/waves.min.js"></script>
     <script src="./assets/js/app.js"></script>
+
+    <!-- View password -->
+     <script>
+function togglePassword() {
+  const passwordInput = document.getElementById("validationCustom02");
+  const icon = document.getElementById("toggleIcon");
+
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    icon.textContent = '🙈'; // eye-slash symbol
+  } else {
+    passwordInput.type = "password";
+    icon.textContent = '👁'; // eye symbol
+  }
+}
+</script>
 </body>
 
 </html>

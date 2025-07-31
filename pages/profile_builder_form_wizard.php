@@ -4,25 +4,8 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Tabs | Clivax - Admin & Dashboard Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Codebucks" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-
-    <!-- dark layout js -->
-    <script src="assets/js/pages/layout.js"></script>
-
-    <!-- Bootstrap Css -->
-    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- simplebar css -->
-    <link href="assets/libs/simplebar/simplebar.min.css" rel="stylesheet">
-    <!-- App Css-->
-    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <title>Contact | Clivax - Admin & Dashboard Template</title>
+    <?php include('../include/source.html'); ?>
 
     <style>
         .tab-btn {
@@ -81,333 +64,11 @@
 
 
         <!-- Start topbar -->
-        <header id="page-topbar">
-            <div class="navbar-header">
-
-                <!-- Logo -->
-
-                <!-- Start Navbar-Brand -->
-
-                <div class="navbar-logo-box">
-                    <a href="dashboard.php" class="logo logo-dark">
-                        <span class="logo-sm">
-                            <img src="assets/images/logo-sm.png" alt="logo-sm-dark" height="20">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="assets/images/logo-dark.png" alt="logo-dark" height="18">
-                        </span>
-                    </a>
-
-                    <a href="dashboard.php" class="logo logo-light">
-                        <span class="logo-sm">
-                            <img src="assets/images/logo-sm.png" alt="logo-sm-light" height="20">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="assets/images/logo-light.png" alt="logo-light" height="18">
-                        </span>
-                    </a>
-
-                    <button type="button" class="btn btn-sm top-icon sidebar-btn" id="sidebar-btn">
-                        <i class="mdi mdi-menu-open align-middle fs-19"></i>
-                    </button>
-                </div>
-                <!-- End Navbar-Brand -->
-                <!-- Start Profile navbar -->
-                <div class="d-flex justify-content-between menu-sm px-3 ms-auto">
-                    <div class="d-flex align-items-center gap-2">
-                        <!-- <div>
-                            <h4 class="fs-16 fw-semibold mb-1 mb-md-2">TICER_<span class="text-primary">JOB_PORTAL
-                                </span></h4>
-                        </div> -->
-                    </div>
-
-                    <div class="d-flex align-items-center gap-2">
-                        <!--Start App Search-->
-                        <form class="app-search d-none d-lg-block">
-                            <div class="position-relative">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="fab fa-sistrix fs-17 align-middle"></span>
-                            </div>
-                        </form>
-                        <!--End App Search-->
-
-                        <!-- Start Notification -->
-                        <div class="dropdown d-inline-block">
-                            <button type="button" class="btn btn-sm top-icon" id="page-header-notifications-dropdown"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-bell align-middle"></i>
-                                <span class="btn-marker"><i class="marker marker-dot text-danger"></i><span>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-md dropdown-menu-end p-0"
-                                aria-labelledby="page-header-notifications-dropdown">
-                                <div class="p-3 bg-info">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h6 class="text-white m-0"><i class="far fa-bell me-2"></i> Notifications
-                                            </h6>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a href="#!" class="badge bg-info-subtle text-info"> 8+</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div data-simplebar style="max-height: 230px;">
-                                    <a href="" class="text-reset notification-item">
-                                        <div class="d-flex">
-                                            <div class="avatar avatar-xs avatar-label-primary me-3">
-                                                <span class="rounded fs-16">
-                                                    <i class="mdi mdi-file-document-outline"></i>
-                                                </span>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h6 class="mb-1">New report has been recived</h6>
-                                                <div class="fs-12 text-muted">
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 min ago</p>
-                                                </div>
-                                            </div>
-                                            <i class="mdi mdi-chevron-right align-middle ms-2"></i>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-reset notification-item">
-                                        <div class="d-flex">
-                                            <div class="avatar avatar-xs avatar-label-success me-3">
-                                                <span class="rounded fs-16">
-                                                    <i class="mdi mdi-cart-variant"></i>
-                                                </span>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h6 class="mb-1">Last order was completed</h6>
-                                                <div class="fs-12 text-muted">
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hour ago</p>
-                                                </div>
-                                            </div>
-                                            <i class="mdi mdi-chevron-right align-middle ms-2"></i>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-reset notification-item">
-                                        <div class="d-flex">
-                                            <div class="avatar avatar-xs avatar-label-danger me-3">
-                                                <span class="rounded fs-16">
-                                                    <i class="mdi mdi-account-group"></i>
-                                                </span>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h6 class="mb-1">Completed meeting canceled</h6>
-                                                <div class="fs-12 text-muted">
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 5 hour ago</p>
-                                                </div>
-                                            </div>
-                                            <i class="mdi mdi-chevron-right align-middle ms-2"></i>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-reset notification-item">
-                                        <div class="d-flex">
-                                            <div class="avatar avatar-xs avatar-label-warning me-3">
-                                                <span class="rounded fs-16">
-                                                    <i class="mdi mdi-send-outline"></i>
-                                                </span>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h6 class="mb-1">New feedback received</h6>
-                                                <div class="fs-12 text-muted">
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 6 hour ago</p>
-                                                </div>
-                                            </div>
-                                            <i class="mdi mdi-chevron-right align-middle ms-2"></i>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-reset notification-item">
-                                        <div class="d-flex">
-                                            <div class="avatar avatar-xs avatar-label-secondary me-3">
-                                                <span class="rounded fs-16">
-                                                    <i class="mdi mdi-download-box"></i>
-                                                </span>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h6 class="mb-1">New update was available</h6>
-                                                <div class="fs-12 text-muted">
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 day ago</p>
-                                                </div>
-                                            </div>
-                                            <i class="mdi mdi-chevron-right align-middle ms-2"></i>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-reset notification-item">
-                                        <div class="d-flex">
-                                            <div class="avatar avatar-xs avatar-label-info me-3">
-                                                <span class="rounded fs-16">
-                                                    <i class="mdi mdi-hexagram-outline"></i>
-                                                </span>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h6 class="mb-1">Your password was changed</h6>
-                                                <div class="fs-12 text-muted">
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 2 day ago</p>
-                                                </div>
-                                            </div>
-                                            <i class="mdi mdi-chevron-right align-middle ms-2"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="p-2 border-top">
-                                    <div class="d-grid">
-                                        <a class="btn btn-sm btn-link font-size-14 text-center"
-                                            href="javascript:void(0)">
-                                            <i class="mdi mdi-arrow-right-circle me-1"></i> View More..
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Notification -->
-
-                        <!-- Start Activities -->
-                        <div class="d-inline-block activities">
-                            <button type="button" class="btn btn-sm top-icon" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvas-rightsidabar">
-                                <i class="fas fa-table align-middle"></i>
-                            </button>
-                        </div>
-                        <!-- End Activities -->
-
-                        <!-- Start Profile -->
-                        <div class="dropdown d-inline-block">
-                            <button type="button" class="btn btn-sm top-icon p-0" id="page-header-user-dropdown"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded avatar-2xs p-0" src="assets/images/users/avatar-6.png"
-                                    alt="Header Avatar">
-                            </button>
-                            <div
-                                class="dropdown-menu dropdown-menu-wide dropdown-menu-end dropdown-menu-animated overflow-hidden py-0">
-                                <div class="card border-0">
-                                    <div class="card-header bg-primary rounded-0">
-                                        <div class="rich-list-item w-100 p-0">
-                                            <div class="rich-list-prepend">
-                                                <div class="avatar avatar-label-light avatar-circle">
-                                                    <div class="avatar-display"><i class="fa fa-user-alt"></i></div>
-                                                </div>
-                                            </div>
-                                            <div class="rich-list-content">
-                                                <h3 class="rich-list-title text-white">Charlie Stone</h3>
-                                                <span class="rich-list-subtitle text-white">admin@codubucks.in</span>
-                                            </div>
-                                            <div class="rich-list-append"><span
-                                                    class="badge badge-label-light fs-6">6+</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body p-0">
-                                        <div class="grid-nav grid-nav-flush grid-nav-action grid-nav-no-rounded">
-                                            <div class="grid-nav-row">
-                                                <a href="apps-contact.html" class="grid-nav-item">
-                                                    <div class="grid-nav-icon"><i class="far fa-address-card"></i></div>
-                                                    <span class="grid-nav-content">Profile</span>
-                                                </a>
-                                                <a href="#!" class="grid-nav-item">
-                                                    <div class="grid-nav-icon"><i class="far fa-comments"></i></div>
-                                                    <span class="grid-nav-content">Messages</span>
-                                                </a>
-                                                <a href="#!" class="grid-nav-item">
-                                                    <div class="grid-nav-icon"><i class="far fa-clone"></i></div>
-                                                    <span class="grid-nav-content">Activities</span>
-                                                </a>
-                                            </div>
-                                            <div class="grid-nav-row">
-                                                <a href="#!" class="grid-nav-item">
-                                                    <div class="grid-nav-icon"><i class="far fa-calendar-check"></i>
-                                                    </div>
-                                                    <span class="grid-nav-content">Tasks</span>
-                                                </a>
-                                                <a href="#!" class="grid-nav-item">
-                                                    <div class="grid-nav-icon"><i class="far fa-sticky-note"></i></div>
-                                                    <span class="grid-nav-content">Notes</span>
-                                                </a>
-                                                <a href="#!" class="grid-nav-item">
-                                                    <div class="grid-nav-icon"><i class="far fa-bell"></i></div>
-                                                    <span class="grid-nav-content">Notification</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer card-footer-bordered rounded-0"><a href="auth-login.html"
-                                            class="btn btn-label-danger">Sign out</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Profile -->
-                    </div>
-                </div>
-                <!-- End Profile navbar -->
-
-            </div>
-        </header>
+        <?php include('../include/topbar.php'); ?>
         <!-- End topbar -->
 
         <!-- ========== Left Sidebar Start ========== -->
-        <div class="sidebar-left">
-
-            <div data-simplebar class="h-100">
-
-                <!--- Sidebar-menu -->
-                <div id="sidebar-menu">
-                    <!-- Left Menu Start -->
-                    <ul class="left-menu list-unstyled" id="side-menu">
-                        <li>
-                            <a href="dashboard.php" class="">
-                                <i class="fas fa-desktop"></i>
-                                <span>USER Dashboard</span>
-                            </a>
-                        </li>
-                         <li class="menu-title">Profile</li>
-
-
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow ">
-                                <i class="fa fa-palette"></i>
-                                <span>Build Profile</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="profile_builder_form_wizard.html"><i
-                                            class="mdi mdi-checkbox-blank-circle align-middle"></i>Profile_Form</a></li>
-                                <li><a href="./view_profile.html"><i
-                                            class="mdi mdi-checkbox-blank-circle align-middle"></i>View Profile</a></li>
-                                             <li><a href="./temp.html"><i
-                                            class="mdi mdi-checkbox-blank-circle align-middle"></i>temp Profile</a></li>
-                            </ul>
-                        </li>
-                         <li class="menu-title">jobs</li>
-
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow ">
-                                <i class="fa fa-unlock-alt"></i>
-                                <span>Apply Jobs</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="./jobsPortal.html"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
-                                        view job</a></li>
-                                <li><a href="auth-register.html"><i
-                                            class="mdi mdi-checkbox-blank-circle align-middle"></i>Applied list</a></li>
-                            </ul>
-                        </li>
-                         <li class="menu-title">Pages</li>
-
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow ">
-                                <i class="fa fa-unlock-alt"></i>
-                                <span>Authentication</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="./signIn.html"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
-                                        Login</a></li>
-                                <li><a href="./register.html"><i
-                                            class="mdi mdi-checkbox-blank-circle align-middle"></i> Register</a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-                <!-- Sidebar -->
-            </div>
-        </div>
+        <?php include('../include/sidebar.html'); ?>
         <!-- Left Sidebar End -->
 
 
@@ -468,20 +129,21 @@
                                         <!-- Tab1 Personal info  -->
                                         <div id="personal" class="data-section active">
                                             <p>Personal Information Table</p>
-                                            <form method="POST" action="save-profile.php" style="font-size: 12px;">
+                                            <form method="POST" action="save-profile.php" style="font-size: 12px;" class="needs-validation" novalidate>
 
                                                 <!-- Row 1 -->
                                                 <div class="needs-validation">
                                                     <div class="row pb-2">
                                                         <div class="col-md-3">
-                                                            <label for="firstName" class="form-label">First Name
+                                                            <label for="validationCustom01" class="form-label">First Name
                                                                 *</label>
-                                                            <input type="text" name="user_profile_first_name" class="form-control" id="firstName"
+                                                            <input type="text" name="user_profile_first_name" class="form-control" id="validationCustom01"
                                                                 required>
+
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <label for="lastName" class="form-label">Last Name *</label>
-                                                            <input type="text" name="user_profile_last_name" class="form-control" id="lastName"
+                                                            <label for="validationCustom02" class="form-label">Last Name *</label>
+                                                            <input type="text" name="user_profile_last_name" class="form-control" id="validationCustom02"
                                                                 required>
                                                         </div>
                                                         <div class="col-md-3">
@@ -500,7 +162,7 @@
 
                                                 <!-- Row 2 -->
                                                 <div class="needs-validation">
-                                                   <div class="row pb-2">
+                                                    <div class="row pb-2">
                                                         <div class="col-md-3">
                                                             <label for="gender" class="form-label">Gender *</label>
                                                             <select class="form-select" name="user_profile_gender" id="gender" required>
@@ -554,7 +216,7 @@
                                                         <div class="col-md-3">
                                                             <label for="landline" class="form-label">Land Line</label>
                                                             <input type="text" name="user_profile_landline" class="form-control" placeholder="+92-111111111" id="landline" required>
-                                                            <div class="form-note text-danger" style="font-size: 8px;"> For example +92-111111111</div>
+                                                            <div class="invalid-feedback"> +92-111111111 </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for="postalAddress" class="form-label">Postal Address
@@ -590,8 +252,7 @@
                                                         <div class="col-md-3">
                                                             <label for="cnicFront" class="form-label">Attach CNIC Front
                                                                 Attachment</label>
-                                                            <input class="form-control" name="user_profile_cnic_front" type="file" id="cnicFront"
-                                                                required>
+                                                            <input class="form-control" name="user_profile_cnic_front" type="file" id="cnicFront">
                                                             <!-- <div class="form-note text-danger" style="font-size: 8px;">
                                                                 Scanned Document
                                                                 Max:2MB (Only jpg,jpeg,png & pdf
@@ -600,12 +261,12 @@
                                                         <div class="col-md-3">
                                                             <label for="cnicBack" class="form-label">Attach CNIC Back
                                                                 Attachment</label>
-                                                            <input class="form-control small" name="user_profile_cnic_back" type="file" id="cnicBack"
-                                                                >
-                                                            <div class="form-note text-danger" style="font-size: 8px;">
+                                                            <input class="form-control small" name="user_profile_cnic_back" type="file" id="cnicBack">
+                                                            <div class="invalid-feedback">
                                                                 Scanned Document
                                                                 Max:2MB (Only jpg,jpeg,png & pdf
-                                                                allowed)</div>
+                                                                allowed)
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -636,12 +297,12 @@
                                                         <div class="col-md-3">
                                                             <label for="domicileFile"
                                                                 class="form-label">Domicile</label>
-                                                            <input class="form-control" name="user_profile_domicile_file" type="file" id="domicileFile"
-                                                                >
-                                                            <div class="form-note text-danger" style="font-size: 8px;">
+                                                            <input class="form-control" name="user_profile_domicile_file" type="file" id="domicileFile">
+                                                            <div class="invalid-feedback">
                                                                 Scanned Document
                                                                 Max:2MB (Only jpg,jpeg,png & pdf
-                                                                allowed)</div>
+                                                                allowed)
+                                                            </div>
                                                         </div>
 
                                                     </div>
@@ -662,8 +323,7 @@
                                                     <div class="col-md-3">
                                                         <label for="licenseFront" class="form-label">Driving License
                                                             Front</label>
-                                                        <input type="file" name="user_profile_license_front" class="form-control" id="licenseFront"
-                                                            >
+                                                        <input type="file" name="user_profile_license_front" class="form-control" id="licenseFront">
                                                         <div class="invalid-feedback">
                                                             Scanned Document Max: 2MB (Only jpg, jpeg, png & pdf
                                                             allowed)
@@ -672,8 +332,7 @@
                                                     <div class="col-md-3">
                                                         <label for="licenseBack" class="form-label">Driving License
                                                             Back</label>
-                                                        <input type="file" name="user_profile_license_back" class="form-control" id="licenseBack"
-                                                            >
+                                                        <input type="file" name="user_profile_license_back" class="form-control" id="licenseBack">
                                                         <div class="invalid-feedback">
                                                             Scanned Document Max: 2MB (Only jpg, jpeg, png & pdf
                                                             allowed)
@@ -764,12 +423,12 @@
                                                             <label for="domicileFile" class="form-label">Police
                                                                 Character
                                                                 Certificate Attach</label>
-                                                            <input class="form-control" name="user_profile_certificate_attach" type="file" id="domicileFile"
-                                                                >
-                                                            <div class="form-note text-danger" style="font-size: 8px;">
+                                                            <input class="form-control" name="user_profile_certificate_attach" type="file" id="domicileFile">
+                                                           <div class="invalid-feedback">
                                                                 Scanned Document
                                                                 Max:2MB (Only jpg,jpeg,png & pdf
-                                                                allowed)</div>
+                                                                allowed)
+                                                            </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for="religion"
@@ -834,17 +493,17 @@
                                                 </div>
 
                                                 <div class="text-end my-3">
-                                                    <button class="btn btn-success" type="submit">Save</button>
+                                                    <button class="btn btn-success" name="savebtn" type="submit">Save</button>
 
                                                 </div>
 
                                                 <hr>
 
-                                              <a href="cv.php?user_profile_id=<?= $user['user_profile_id'] ?>" class="btn btn-primary">View CV</a>
+                                                <a href="cv.php?user_profile_id=<?= $user['user_profile_id'] ?>" class="btn btn-primary">View CV</a>
 
 
 
-<hr>
+                                                <hr>
                                                 <div>
                                                     <a href="#" class="btn btn-success">Prev</a>
                                                     <a href="#" class="btn btn-success">Next</a>
@@ -908,7 +567,7 @@
                                                     <tbody>
 
 
-                                                       
+
                                                     </tbody>
                                                 </table>
 
@@ -940,7 +599,7 @@
                                                             </div>
 
                                                             <div class="modal-body">
-                                                              <div class="row g-3">
+                                                                <div class="row g-3">
                                                                     <div class="col-md-4">
                                                                         <label class="form-label">Position Title</label>
                                                                         <input type="text" name="position_title" class="form-control">
@@ -2023,13 +1682,16 @@
                 </div>
                 <!-- container-fluid -->
             </div>
+
             <!-- End Page-content -->
 
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script> © Clivax.
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> © Clivax.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
@@ -2040,8 +1702,8 @@
                     </div>
                 </div>
             </footer>
-
         </div>
+
         <!-- end main content-->
 
     </div>
@@ -2257,20 +1919,25 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="../assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="../assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="../assets/libs/node-waves/waves.min.js"></script>
+    <script src="../assets/libs/jquery/jquery.min.js"></script>
+    <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- apexcharts -->
+    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
 
-    <script src="assets/libs/parsleyjs/parsley.min.js"></script>
+    <script src="assets/js/pages/dashboard.init.js"></script>
+    <script src="../assets/libs/parsleyjs/parsley.min.js"></script>
 
-    <script src="assets/js/pages/form-validation.init.js"></script>
+    <script src="../assets/js/pages/form-validation.init.js"></script>
 
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/app.js"></script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Handle tab switching
-            $('.tab-btn').click(function () {
+            $('.tab-btn').click(function() {
                 $('.tab-btn').removeClass('active');
                 $(this).addClass('active');
 
@@ -2295,9 +1962,6 @@
 
 
         });
-
-
-
     </script>
 
 
@@ -2306,21 +1970,21 @@
 
     <script>
         // Show modal on button click
-        $(document).ready(function () {
-            $('#addBtn').click(function () {
+        $(document).ready(function() {
+            $('#addBtn').click(function() {
                 var modal = new bootstrap.Modal(document.getElementById('addForm'));
                 modal.show();
             });
 
             // ✅ Initialize CKEditor only when modal is shown
-            $('#addForm').on('shown.bs.modal', function () {
+            $('#addForm').on('shown.bs.modal', function() {
                 if (!CKEDITOR.instances['jobDesc']) {
                     CKEDITOR.replace('jobDesc');
                 }
             });
 
             // ✅ Destroy CKEditor when modal is hidden (optional but recommended)
-            $('#addForm').on('hidden.bs.modal', function () {
+            $('#addForm').on('hidden.bs.modal', function() {
                 if (CKEDITOR.instances['jobDesc']) {
                     CKEDITOR.instances['jobDesc'].destroy(true);
                 }
@@ -2333,48 +1997,48 @@
     </script>
 
 
-<!-- vhlabvjakvgkj -->
+    <!-- Modal -->
 
-<script>
-    $(document).ready(function () {
-        // Show modal on Add button click
-        $('#addBtn').click(function () {
-            var modal = new bootstrap.Modal(document.getElementById('addForm'));
-            modal.show();
-        });
+    <script>
+        $(document).ready(function() {
+            // Show modal on Add button click
+            $('#addBtn').click(function() {
+                var modal = new bootstrap.Modal(document.getElementById('addForm'));
+                modal.show();
+            });
 
-        // Initialize CKEditor only when modal is shown
-        $('#addForm').on('shown.bs.modal', function () {
-            if (!CKEDITOR.instances['jobDesc']) {
-                CKEDITOR.replace('jobDesc');
-            }
-        });
+            // Initialize CKEditor only when modal is shown
+            $('#addForm').on('shown.bs.modal', function() {
+                if (!CKEDITOR.instances['jobDesc']) {
+                    CKEDITOR.replace('jobDesc');
+                }
+            });
 
-        // Destroy CKEditor when modal is hidden
-        $('#addForm').on('hidden.bs.modal', function () {
-            if (CKEDITOR.instances['jobDesc']) {
-                CKEDITOR.instances['jobDesc'].destroy(true);
-            }
+            // Destroy CKEditor when modal is hidden
+            $('#addForm').on('hidden.bs.modal', function() {
+                if (CKEDITOR.instances['jobDesc']) {
+                    CKEDITOR.instances['jobDesc'].destroy(true);
+                }
 
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
-        });
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+            });
 
-        // ✅ AJAX submit on form save
-        $('#experienceForm').on('submit', function (e) {
-            e.preventDefault();
+            // ✅ AJAX submit on form save
+            $('#experienceForm').on('submit', function(e) {
+                e.preventDefault();
 
-            var formData = new FormData(this);
-            formData.set('job_responsibilities', CKEDITOR.instances['jobDesc'].getData());
+                var formData = new FormData(this);
+                formData.set('job_responsibilities', CKEDITOR.instances['jobDesc'].getData());
 
-            fetch('save_experience.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    let row = `
+                fetch('save_experience.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            let row = `
                         <tr>
                             <td>${data.experience.position_title}</td>
                             <td>${data.experience.from_date}</td>
@@ -2385,22 +2049,22 @@
                             <td><button class="btn btn-sm btn-danger">Delete</button></td>
                         </tr>
                     `;
-                    $('#work_history_table tbody').append(row);
+                            $('#work_history_table tbody').append(row);
 
-                    // Close modal and reset
-                    const modal = bootstrap.Modal.getInstance(document.getElementById('addForm'));
-                    modal.hide();
+                            // Close modal and reset
+                            const modal = bootstrap.Modal.getInstance(document.getElementById('addForm'));
+                            modal.hide();
 
-                    this.reset();
-                    CKEDITOR.instances['jobDesc'].setData('');
-                } else {
-                    alert("Error: " + data.message);
-                }
-            })
-            .catch(err => alert("Failed: " + err));
+                            this.reset();
+                            CKEDITOR.instances['jobDesc'].setData('');
+                        } else {
+                            alert("Error: " + data.message);
+                        }
+                    })
+                    .catch(err => alert("Failed: " + err));
+            });
         });
-    });
-</script>
+    </script>
 
 
 
@@ -2409,14 +2073,50 @@
 
 
 
-    <!-- JAVASCRIPT -->
-    <script src="assets/libs/jquery/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
 
-    <script src="assets/js/app.js"></script>
+
+
+
+    <!-- Sweet Alerts js -->
+    <script src="../assets/libs/sweetalert2/sweetalert2.min.js"></script>
+
+    <!-- Sweet alert init js-->
+    <script src="../assets/js/pages/sweet-alerts.init.js"></script>
+
+    <!-- Success Alert -->
+    <?php
+    // Control alert visibility (0 = none, 1 = success, 2 = warning)
+    $showAlert = 2; // Change this value based on your condition
+
+    if ($showAlert == 1): ?>
+        <!-- Success Alert -->
+        <script>
+            window.addEventListener("load", function() {
+                Swal.fire({
+                    title: 'Operation Done',
+                    icon: 'success',
+                    timer: 1000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    position: 'top-end'
+                });
+            });
+        </script>
+    <?php elseif ($showAlert == 2): ?>
+        <!-- Warning Alert -->
+        <script>
+            window.addEventListener("load", function() {
+                Swal.fire({
+                    title: 'Operation Failed',
+                    icon: 'warning',
+                    timer: 1000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    position: 'top-end'
+                });
+            });
+        </script>
+    <?php endif; ?>
 
 </body>
 
