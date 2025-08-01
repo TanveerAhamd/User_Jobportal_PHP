@@ -343,12 +343,12 @@ if (!isset($_SESSION['user_register_btn'])) {
                                 <span>Build Profile</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="pages/profile_builder_form_wizard.php"><i
+                                <li><a href="profile_builder_form_wizard.php"><i
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i>Profile_Form</a></li>
-                                <li><a href="pages/view_profile.php"><i
+                                <li><a href="view_profile.php"><i
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i>View Profile</a></li>
-                                <li><a href="./temp.html"><i
-                                            class="mdi mdi-checkbox-blank-circle align-middle"></i>temp Profile</a></li>
+                                <li><a href="view_profiles.php"><i
+                                            class="mdi mdi-checkbox-blank-circle align-middle"></i>View Profiles</a></li>
                        
                             </ul>
                         </li>
@@ -360,7 +360,7 @@ if (!isset($_SESSION['user_register_btn'])) {
                                 <span>Apply Jobs</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="pages/appliedjobs.php"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
+                                <li><a href="appliedjobs.php"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
                                         view job</a></li>
                                 <li><a href="auth-register.html"><i
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i>Applied list</a></li>
@@ -374,9 +374,9 @@ if (!isset($_SESSION['user_register_btn'])) {
                                 <span>Authentication</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="./signIn.html"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
+                                <li><a href="index.php"><i class="mdi mdi-checkbox-blank-circle align-middle"></i>
                                         Login</a></li>
-                                <li><a href="./register.html"><i
+                                <li><a href="register.php"><i
                                             class="mdi mdi-checkbox-blank-circle align-middle"></i> Register</a></li>
                             </ul>
                         </li>
@@ -621,7 +621,6 @@ if (!isset($_SESSION['user_register_btn'])) {
     <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
     <!-- DataTables JS and Extensions -->
-    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.flash.min.js"></script>
     <!-- Responsive examples -->
     <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>

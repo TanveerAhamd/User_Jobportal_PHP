@@ -9,19 +9,19 @@
                 <div class="navbar-logo-box">
                     <a href="dashboard.php" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="../assets/images/logo-sm.png" alt="logo-sm-dark" height="20">
+                            <img src="assets/images/logo-sm.png" alt="logo-sm-dark" height="20">
                         </span>
                         <span class="logo-lg">
-                            <img src="../assets/images/logo-dark.png" alt="logo-dark" height="18">
+                            <img src="assets/images/logo-dark.png" alt="logo-dark" height="18">
                         </span>
                     </a>
 
                     <a href="dashboard.php" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="../assets/images/logo-sm.png" alt="logo-sm-light" height="20">
+                            <img src="assets/images/logo-sm.png" alt="logo-sm-light" height="20">
                         </span>
                         <span class="logo-lg">
-                            <img src="../assets/images/logo-light.png" alt="logo-light" height="18">
+                            <img src="assets/images/logo-light.png" alt="logo-light" height="18">
                         </span>
                     </a>
 
@@ -246,7 +246,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer card-footer-bordered rounded-0"><a href="auth-login.html"
+                                    <div class="card-footer card-footer-bordered rounded-0"><a href="../signout.php"
                                             class="btn btn-label-danger">Sign out</a></div>
                                 </div>
                             </div>

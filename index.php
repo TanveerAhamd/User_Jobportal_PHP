@@ -52,9 +52,7 @@
                                 <div class="input-group auth-form-group-custom mb-3">
                                     <span class="input-group-text bg-primary bg-opacity-10 fs-16" id="basic-addon2"><i class="mdi mdi-lock-outline auti-custom-input-icon"></i></span>
                                     <input type="password" class="form-control" id="validationCustom02" placeholder="Enter password" aria-label="Username" name="user_register_password" aria-describedby="basic-addon1" required>
-                                     <span id="toggleIcon" onclick="togglePassword()" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;">
-                                                    👁
-                                                </span>
+                                     <span id="toggleIcon" onclick="togglePassword()" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;">👁</span>
 
                                 </div>
 
