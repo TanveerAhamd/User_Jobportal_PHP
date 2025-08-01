@@ -1,21 +1,23 @@
 <?php
-// 1. Connect to the database
+session_start();
 include ('../include/config.php');
 
-// 3. Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect and sanitize data
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['savebtn'])) {
+
+    // Collect form data
     $first_name = $_POST['user_profile_first_name'];
     $last_name = $_POST['user_profile_last_name'];
     $birth = $_POST['user_profile_birth'];
     $age = $_POST['user_profile_age'];
-    $gender = $_POST['user_profile_gender'];
-    $marital_status = $_POST['user_profile_marital_status'];
-    $husband_name = $_POST['user_profile_husband_name'];
+    $gender = $_POST['user_profile_gender'] ?? '';
+    $marital_status = $_POST['user_profile_marital_status'] ?? '';
+    $husband_name = $_POST['user_profile_husband_name'] ?? '';
     $father_name = $_POST['user_profile_father_name'];
-    $religion = $_POST['user_profile_religion'];
+    $religion = $_POST['user_profile_religion'] ?? '';
     $phone = $_POST['user_profile_phonenum'];
-    $landline = $_POST['user_profile_landline'];
+    $landline = $_POST['user_profile_landline'] ?? '';
     $postal = $_POST['user_profile_postaladr'];
     $cnic = $_POST['user_profile_cnic'];
     $cnic_expiry = $_POST['user_profile_cnic_expery'];
@@ -25,17 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nationality = $_POST['user_profile_nationality'];
     $reside_country = $_POST['user_profile_reside_country'];
     $reside_city = $_POST['user_profile_reside_city'];
-    $certificate_number = $_POST['user_profile_certificatenum'];
-    $hafiz = $_POST['user_profile_hafiz'];
-    $ex_service = $_POST['user_profile_exservice'];
+    $certificate_number = $_POST['user_profile_certificatenum'] ?? '';
+    $hafiz = $_POST['user_profile_hafiz'] ?? '';
+    $ex_service = $_POST['user_profile_exservice'] ?? '';
     $disable = isset($_POST['user_profile_disable']) ? 1 : 0;
     $servent = isset($_POST['user_profile_servent']) ? 1 : 0;
     $official = isset($_POST['user_profile_official']) ? 1 : 0;
     $objective = $_POST['user_profile_objective'];
 
-    // NOTE: For file uploads like CNIC, Domicile, etc., use move_uploaded_file() logic if storing them.
-
-    // 4. Insert query
     $sql = "INSERT INTO Profile_builder (
         user_profile_first_name, user_profile_last_name, user_profile_birth, user_profile_age, 
         user_profile_gender, user_profile_marital_status, user_profile_husband_name, user_profile_father_name,
@@ -54,11 +53,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         '$disable', '$servent', '$official', '$objective'
     )";
 
-//    if (isset($_POST['savebtn'])){
-//     header("Location: profile_builder_form_wizard.php");
-//    }
 
-    // 6. Close connection
+    if ($cn->query($sql) === TRUE) {
+        echo "✅ Record inserted successfully!";
+        // header("Location: profile_builder_form_wizard.php");
+        // exit;
+    } else {
+        echo "❌ Error: " . $sql . "<br>" . $cn->error;
+    }
+
     $cn->close();
 }
 ?>

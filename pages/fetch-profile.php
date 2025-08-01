@@ -43,7 +43,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row['user_profile_nationality'] . "</td>";
         echo "<td>" . $row['user_profile_reside_city'] . "</td>";
         echo "<td>" . $row['user_profile_objective'] . "</td>";
-        echo "</tr>";
+        echo "<td><a href='cv.php?user_profile_id= " . $row['user_profile_id'] ."' class='btn btn-primary'>View CV</a></td>";
     }
 
     echo "</table>";
