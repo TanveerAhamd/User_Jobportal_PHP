@@ -1,11 +1,20 @@
  <?php
-    session_start();
+    include('include/auth.php');
     $userId = $_SESSION['user_profile_id']; // Only if you already store it during login
     include('include/config.php');
-    //  Handle delete action
+    //  Handle delete action of experience
     if (isset($_GET['experience_id'])) {
         $experience_id = $_GET['experience_id'];
         $delete_query = "DELETE FROM job_experience WHERE id = $experience_id";
+        $cn->query($delete_query);
+        // Optional: Show a message or redirect
+        header("Location: profile_builder_form_wizard.php");
+        exit();
+    }
+    //  Handle delete action of degree
+    if (isset($_GET['degree_id'])) {
+        $degree_id = $_GET['degree_id'];
+        $delete_query = "DELETE FROM degree_information WHERE id = $degree_id";
         $cn->query($delete_query);
         // Optional: Show a message or redirect
         header("Location: profile_builder_form_wizard.php");
@@ -68,6 +77,11 @@
              background-color: #777;
              border-radius: 10px;
          }
+
+         .inactive-row {
+             background-color: #f8d7da !important;
+             /* light red/pink */
+         }
      </style>
 
 
@@ -99,7 +113,7 @@
                      <!-- start page title -->
                      <div class="row">
                          <div class="col-12">
-                             <div class="page-title-box d-flex align-items-center justify-content-between">
+                             <!-- <div class="page-title-box d-flex align-items-center justify-content-between">
                                  <h4 class="mb-sm-0">Tabs</h4>
 
                                  <div class="page-title-right">
@@ -109,7 +123,7 @@
                                      </ol>
                                  </div>
 
-                             </div>
+                             </div> -->
                          </div>
                      </div>
                      <!-- end page title -->
@@ -117,7 +131,7 @@
                      <div class="row">
                          <div class="col-12">
                              <div class="card">
-                                 <!-- <div class="card-header">
+                                 <!-- <div class="card-header"> 1a-k
                                 <h3 class="card-title">Basic tab</h3>
                                 </div> -->
                                  <div class="card-body">
@@ -223,7 +237,7 @@
                                                          </div>
                                                          <div class="col-md-3">
                                                              <label for="mobileNumber" class="form-label">Mobile Number *</label>
-                                                             <input type="text" name="user_profile_phonenum" class="form-control" placeholder="0311-1234567" id="mobileNumber" required>
+                                                             <input type="text" name="user_profile_phonenum" class="form-control" value="<?= $editData['user_profile_phonenum'] ?? '' ?>" placeholder="03XXXXXXXXX" id="cnic" required>
                                                              <!-- <div class="form-note  text-danger" style="font-size: 8px;">
                                                                 Number should be
                                                                 registered on Candidate own CNIC</div> -->
@@ -569,7 +583,8 @@
                                                              <th scope="col" class="bg-secondary-subtle py-3">To</th>
                                                              <th scope="col" class="bg-secondary-subtle py-3">Company Name</th>
                                                              <th scope="col" class="bg-secondary-subtle py-3">Job Level</th>
-                                                             <th scope="col" class="bg-secondary-subtle py-3">Job Responsibilities</th>
+                                                             <th scope="col" class="bg-secondary-subtle py-3">Status</th>
+                                                             <!-- <th scope="col" class="bg-secondary-subtle py-3">Job Responsibilities</th> -->
                                                              <th scope="col" class="bg-secondary-subtle py-3">Action</th>
                                                          </tr>
                                                      </thead>
@@ -581,36 +596,70 @@
                                                             if ($result->num_rows > 0):
                                                                 while ($row = $result->fetch_assoc()):
                                                             ?>
-                                                                 <tr>
+                                                                 <tr class="<?= ($row['status'] === 'Inactive') ? 'inactive-row' : '' ?>">
                                                                      <td><?= htmlspecialchars($row['position_title']) ?></td>
                                                                      <td><?= htmlspecialchars($row['from_date']) ?></td>
                                                                      <td><?= htmlspecialchars($row['to_date']) ?></td>
                                                                      <td><?= htmlspecialchars($row['company_name']) ?></td>
                                                                      <td><?= htmlspecialchars($row['job_level']) ?></td>
-                                                                     <td><?= nl2br(htmlspecialchars($row['jobDesc'])) ?></td>
                                                                      <td>
-                                                                         <button
-                                                                             class="btn btn-sm btn-warning edit-btn"
-                                                                             data-id="<?= $row['id'] ?>"
-                                                                             data-title="<?= htmlspecialchars($row['position_title'], ENT_QUOTES) ?>"
-                                                                             data-from="<?= $row['from_date'] ?>"
-                                                                             data-to="<?= $row['to_date'] ?>"
-                                                                             data-company="<?= htmlspecialchars($row['company_name'], ENT_QUOTES) ?>"
-                                                                             data-level="<?= $row['job_level'] ?>"
-                                                                             data-country="<?= $row['country'] ?>"
-                                                                             data-desc="<?= htmlspecialchars($row['jobDesc'], ENT_QUOTES) ?>"
-                                                                             data-bs-toggle="modal"
-                                                                             data-bs-target="#addForm">
-                                                                             Edit
-                                                                         </button>
-
-                                                                         <a href="profile_builder_form_wizard.php?experience_id=<?= $row['id'] ?>"
-                                                                             class="btn btn-sm btn-danger"
-                                                                             onclick="return confirm('Are you sure you want to delete this profile?');">
-                                                                             Delete
-                                                                         </a>
-
+                                                                         <?php if ($row['status'] === 'Active'): ?>
+                                                                             <span class="badge bg-success">Active</span>
+                                                                         <?php else: ?>
+                                                                             <span class="badge bg-warning text-dark">Inactive</span>
+                                                                         <?php endif; ?>
                                                                      </td>
+
+                                                                     <!-- dropdown -->
+                                                                     <td>
+                                                                         <div class="dropdown">
+                                                                             <button class="btn btn-sm btn-light border dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                                 <a href="" class="fw-bold fs-3"> ⋮</a>
+                                                                             </button>
+                                                                             <ul class="dropdown-menu">
+                                                                                 <li>
+                                                                                     <a href="#" class="btn btn-sm btn-success m-1 status-btn"
+                                                                                         data-id="<?= $row['id'] ?>"
+                                                                                         data-status="Active">Active</a>
+                                                                                 </li>
+                                                                                 <li>
+                                                                                     <a href="#" class="btn btn-sm btn-warning m-1 status-btn"
+                                                                                         data-id="<?= $row['id'] ?>"
+                                                                                         data-status="Inactive">Inactive</a>
+                                                                                 </li>
+
+                                                                                 <li>
+                                                                                     <button
+                                                                                         class="btn btn-sm btn-warning edit-btn m-1"
+                                                                                         data-id="<?= $row['id'] ?>"
+                                                                                         data-title="<?= htmlspecialchars($row['position_title'], ENT_QUOTES) ?>"
+                                                                                         data-from="<?= $row['from_date'] ?>"
+                                                                                         data-to="<?= $row['to_date'] ?>"
+                                                                                         data-company="<?= htmlspecialchars($row['company_name'], ENT_QUOTES) ?>"
+                                                                                         data-level="<?= $row['job_level'] ?>"
+                                                                                         data-country="<?= $row['country'] ?>"
+                                                                                         data-desc="<?= htmlspecialchars($row['jobDesc'], ENT_QUOTES) ?>"
+                                                                                         data-bs-toggle="modal"
+                                                                                         data-bs-target="#addForm">
+                                                                                         Edit
+                                                                                     </button>
+                                                                                 </li>
+
+                                                                                 <li>
+                                                                                     <a href="profile_builder_form_wizard.php?experience_id=<?= $row['id'] ?>"
+                                                                                         class="btn btn-sm btn-danger m-1"
+                                                                                         onclick="return confirm('Are you sure you want to delete this profile?');">
+                                                                                         Delete
+                                                                                     </a>
+                                                                                 </li>
+                                                                             </ul>
+                                                                         </div>
+                                                                                    
+                                                                     </td>
+
+
+
+
                                                                  </tr>
                                                              <?php
                                                                 endwhile;
@@ -692,7 +741,7 @@
                                                                      <div class="col-12">
                                                                          <label class="form-label">Experience
                                                                              Certificate</label>
-                                                                         <input type="file" name="experience_certificate"  class="form-control">
+                                                                         <input type="file" name="experience_certificate" class="form-control">
                                                                          <small class="text-danger">Attachment (Max: 2MB
                                                                              & Only jpg, jpeg, png, pdf
                                                                              allowed)</small>
@@ -752,20 +801,108 @@
                                                              </th>
                                                              <th scope="col" class="bg-secondary-subtle py-3">Completion
                                                                  Date</th>
-                                                             <th scope="col" class="bg-secondary-subtle py-3">Country
+                                                             <th scope="col" class="bg-secondary-subtle py-3">Status</th>
+
+                                                             <!-- <th scope="col" class="bg-secondary-subtle py-3">Country
                                                              </th>
-                                                             <!--<th scope="col"  >Grade/CGPA</th>-->
+                                                             
                                                              <th scope="col" class="bg-secondary-subtle py-3">Percentage
                                                              </th>
                                                              <th scope="col" class="bg-secondary-subtle py-3">Position
                                                                  Holder</th>
                                                              <th scope="col" class="bg-secondary-subtle py-3">Degree
-                                                                 Verification Number</th>
-                                                             <!-- <th scope="col"  >Attachment</th> -->
+                                                                 Verification Number</th> -->
+
                                                              <th scope="col" class="bg-secondary-subtle py-3">Action</th>
                                                          </tr>
                                                      </thead>
                                                      <tbody>
+                                                         <?php
+
+                                                            $sql = "SELECT * FROM degree_information";
+                                                            $result = $cn->query($sql);
+                                                            if ($result->num_rows > 0):
+                                                                while ($row = $result->fetch_assoc()):
+                                                            ?>
+                                                                 <tr>
+                                                                     <td><?= htmlspecialchars($row['institute']) ?></td>
+                                                                     <td><?= htmlspecialchars($row['degree_level']) ?></td>
+                                                                     <td><?= htmlspecialchars($row['degree']) ?></td>
+                                                                     <td><?= htmlspecialchars($row['major_subjects']) ?></td>
+                                                                     <td><?= htmlspecialchars($row['start_date']) ?></td>
+                                                                     <td><?= htmlspecialchars($row['completion_date']) ?></td>
+                                                                     <td>
+                                                                         <?php if ($row['status'] === 'Active'): ?>
+                                                                             <span class="badge bg-success">Active</span>
+                                                                         <?php else: ?>
+                                                                             <span class="badge bg-warning text-dark">Inactive</span>
+                                                                         <?php endif; ?>
+                                                                     </td>
+
+
+                                                                     <td>
+                                                                         <div class="dropdown">
+                                                                             <button class="btn btn-sm btn-light border dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                                 <a href="" class="fw-bold fs-3"> ⋮</a>
+                                                                             </button>
+                                                                             <ul class="dropdown-menu">
+                                                                                 <li>
+                                                                                     <a href="#"
+                                                                                         class="btn btn-sm btn-success m-1 status-btn"
+                                                                                         data-id="<?= $row['id'] ?>"
+                                                                                         data-status="Active">
+                                                                                         Active
+                                                                                     </a>
+                                                                                 </li>
+
+                                                                                 <li>
+                                                                                     <a href="#"
+                                                                                         class="btn btn-sm btn-warning m-1 status-btn"
+                                                                                         data-id="<?= $row['id'] ?>"
+                                                                                         data-status="Inactive">
+                                                                                         Inactive
+                                                                                     </a>
+                                                                                 </li>
+
+                                                                                 <li>
+                                                                                     <button class="btn btn-sm btn-warning edit-degree-btn m-1"
+                                                                                         data-id="<?= $row['id'] ?>"
+                                                                                         data-degree_level="<?= htmlspecialchars($row['degree_level'], ENT_QUOTES) ?>"
+                                                                                         data-degree="<?= htmlspecialchars($row['degree'], ENT_QUOTES) ?>"
+                                                                                         data-institute="<?= htmlspecialchars($row['institute'], ENT_QUOTES) ?>"
+                                                                                         data-major_subjects="<?= htmlspecialchars($row['major_subjects'], ENT_QUOTES) ?>"
+                                                                                         data-start_date="<?= $row['start_date'] ?>"
+                                                                                         data-completion_date="<?= $row['completion_date'] ?>"
+                                                                                         data-country="<?= htmlspecialchars($row['country'], ENT_QUOTES) ?>"
+                                                                                         data-marks_percentage="<?= $row['marks_percentage'] ?>"
+                                                                                         data-position_holder="<?= $row['position_holder'] ?>"
+                                                                                         data-bs-toggle="modal"
+                                                                                         data-bs-target="#addDegree">
+                                                                                         Edit
+                                                                                     </button>
+
+                                                                                 </li>
+
+                                                                                 <li>
+                                                                                     <a href="profile_builder_form_wizard.php?degree_id=<?= $row['id'] ?>"
+                                                                                         class="btn btn-sm btn-danger m-1"
+                                                                                         onclick="return confirm('Are you sure you want to delete this profile?');">
+                                                                                         Delete
+                                                                                     </a>
+                                                                                 </li>
+                                                                             </ul>
+                                                                         </div>
+                                                                                    
+                                                                     </td>
+                                                                 </tr>
+                                                             <?php
+                                                                endwhile;
+                                                            else:
+                                                                ?>
+                                                             <tr>
+                                                                 <td colspan="7" class="text-center">No experience found.</td>
+                                                             </tr>
+                                                         <?php endif; ?>
                                                      </tbody>
                                                  </table>
                                                  <!-- <div class="bottom-line clearfix" id="degree_btn">
@@ -787,7 +924,7 @@
                                              <div class="modal fade" id="addDegree" tabindex="-1" aria-hidden="true">
                                                  <div class="modal-dialog modal-lg">
                                                      <div class="modal-content">
-                                                         <form>
+                                                         <form method="POST" action="degree_experience.php" id="experienceForm" enctype="multipart/form-data">
                                                              <div class="modal-header bg-success text-white">
                                                                  <h5 class="modal-title">Add Degree Information</h5>
                                                                  <button type="button" class="btn-close btn-close-white"
@@ -797,10 +934,10 @@
                                                              <div class="modal-body">
                                                                  <div class="row g-3">
 
-
+                                                                     <input type="hidden" name="degree_id" id="degree_id">
                                                                      <div class="col-md-4">
                                                                          <label class="form-label">Degree Level</label>
-                                                                         <select class="form-select">
+                                                                         <select class="form-select" name="degree_level" id="degree_level">
                                                                              <option>Select Degree Level</option>
                                                                              <option>Entry Level</option>
                                                                              <option>Mid Level</option>
@@ -809,7 +946,7 @@
                                                                      </div>
                                                                      <div class="col-md-4">
                                                                          <label class="form-label">Degree</label>
-                                                                         <select class="form-select">
+                                                                         <select class="form-select" name="degree" id="degree">
                                                                              <option>Select Degree</option>
                                                                              <option>Pakistan</option>
                                                                              <option>UAE</option>
@@ -818,7 +955,7 @@
                                                                      </div>
                                                                      <div class="col-md-4">
                                                                          <label class="form-label">Institute</label>
-                                                                         <select class="form-select">
+                                                                         <select class="form-select" name="institute" id="institute">
                                                                              <option>Select Institute</option>
                                                                              <option>Pakistan</option>
                                                                              <option>UAE</option>
@@ -827,20 +964,20 @@
                                                                      </div>
                                                                      <div class="col-md-4">
                                                                          <label class="form-label">Major Subjects</label>
-                                                                         <input type="text" class="form-control">
+                                                                         <input type="text" class="form-control" name="major_subjects" id="major_subjects">
                                                                      </div>
                                                                      <div class="col-md-4">
                                                                          <label class="form-label">Start Date </label>
-                                                                         <input type="date" class="form-control">
+                                                                         <input type="date" class="form-control" name="start_date" id="start_date">
                                                                      </div>
                                                                      <div class="col-md-4">
                                                                          <label class="form-label">Completion Date
                                                                          </label>
-                                                                         <input type="date" class="form-control">
+                                                                         <input type="date" class="form-control" name="completion_date" id="completion_date">
                                                                      </div>
                                                                      <div class="col-md-4">
                                                                          <label class="form-label">Country</label>
-                                                                         <select class="form-select">
+                                                                         <select class="form-select" name="country" id="country">
                                                                              <option>Select Country</option>
                                                                              <option>Pakistan</option>
                                                                              <option>UAE</option>
@@ -850,12 +987,12 @@
                                                                      <div class="col-md-4">
                                                                          <label class="form-label">Marks Percentage
                                                                          </label>
-                                                                         <input type="text" class="form-control">
+                                                                         <input type="text" class="form-control" name="marks_percentage" id="marks_percentage">
                                                                      </div>
                                                                      <div class="col-md-4">
                                                                          <label class="form-label">Position
                                                                              Holder</label>
-                                                                         <select class="form-select">
+                                                                         <select class="form-select" name="position_holder" id="position_holder">
                                                                              <option>Select Position</option>
                                                                              <option>Pakistan</option>
                                                                              <option>UAE</option>
@@ -865,7 +1002,7 @@
                                                                      <div class="col-md-4">
                                                                          <label class="form-label">Grading Criteria
                                                                          </label>
-                                                                         <select class="form-select">
+                                                                         <select class="form-select" name="grading_criteria" id="grading_criteria">
                                                                              <option>Select Type</option>
                                                                              <option>Pakistan</option>
                                                                              <option>UAE</option>
@@ -875,7 +1012,7 @@
                                                                      <div class="col-md-4">
                                                                          <label class="form-label">Degree Verification
                                                                              Number </label>
-                                                                         <input type="text" class="form-control">
+                                                                         <input type="text" class="form-control" name="degree_verification_number" id="degree_verification_number">
                                                                      </div>
 
 
@@ -884,7 +1021,7 @@
                                                                      <div class="col-12">
                                                                          <label class="form-label">Attach Degree /
                                                                              Certificate</label>
-                                                                         <input type="file" class="form-control">
+                                                                         <input type="file" class="form-control" name="degree_certificate" id="degree_certificate">
                                                                          <small class="text-danger">Scanned Document
                                                                              (Max: 2MB & Only jpg, jpeg, png, pdf
                                                                              allowed)</small>
@@ -894,8 +1031,10 @@
                                                              </div>
 
                                                              <div class="modal-footer">
-                                                                 <button type="submit" class="btn btn-success">Save &
-                                                                     Continue</button>
+                                                                 <button type="submit" name="save_degree_info" id="degreeSubmitBtn" class="btn btn-success">
+                                                                     Save and Continue
+                                                                 </button>
+
                                                                  <button type="button" class="btn btn-secondary"
                                                                      data-bs-dismiss="modal">Exit</button>
                                                              </div>
@@ -2188,7 +2327,7 @@
          });
      </script>
 
-     <!-- Controll edit button -->
+     <!-- Controll edit button of experience -->
      <script>
          $(document).ready(function() {
              $('.edit-btn').click(function() {
@@ -2209,6 +2348,98 @@
              });
          });
      </script>
+
+     <!-- Controll edit button of degree -->
+     <script>
+         $(document).ready(function() {
+             $('.edit-degree-btn').click(function() {
+                 var btn = $(this);
+                 $('#degreeSubmitBtn')
+                     .text('Update') // Change button text
+                     .attr('name', 'update_degree_info'); // Change form name for backend handling
+
+                 $('#degree_id').val(btn.data('id'));
+                 $('#degree_level').val(btn.data('degree_level'));
+                 $('#degree').val(btn.data('degree'));
+                 $('#institute').val(btn.data('institute'));
+                 $('#major_subjects').val(btn.data('major_subjects'));
+                 $('#start_date').val(btn.data('start_date'));
+                 $('#completion_date').val(btn.data('completion_date'));
+                 $('#country').val(btn.data('country'));
+                 $('#marks_percentage').val(btn.data('marks_percentage'));
+                 $('#position_holder').val(btn.data('position_holder'));
+             });
+         });
+     </script>
+
+     <!-- Input masking -->
+     <script>
+         // ✅ CNIC Mask: 12345-1234567-1
+         Inputmask("99999-9999999-9").mask("#cnic");
+     </script>
+
+     <!-- Experience status handling -->
+     <script>
+         $(document).ready(function() {
+             $('.status-btn').click(function(e) {
+                 e.preventDefault();
+
+                 var button = $(this);
+                 var id = button.data('id');
+                 var newStatus = button.data('status');
+
+                 $.ajax({
+                     url: 'update_experience_status.php', // Make sure this is the correct PHP file
+                     method: 'POST',
+                     data: {
+                         id: id,
+                         status: newStatus
+                     },
+                     success: function(response) {
+                         console.log("Response:", response);
+                         alert(response);
+                         location.reload(true); // Force full reload
+                     },
+                     error: function() {
+                         alert("❌ Error updating status.");
+                     }
+                 });
+             });
+         });
+     </script>
+
+
+     <!-- Active handling -->
+     <script>
+         $(document).ready(function() {
+             // Status change handler
+             $('.status-btn').click(function(e) {
+                 e.preventDefault();
+                 var button = $(this);
+                 var id = button.data('id');
+                 var newStatus = button.data('status');
+
+                 $.ajax({
+                     url: 'update_degree_status.php',
+                     method: 'POST',
+                     data: {
+                         id: id,
+                         status: newStatus
+                     },
+                     success: function(response) {
+                         alert(response);
+                         location.reload(); // Refresh page to reflect status change
+                     },
+                     error: function() {
+                         alert("❌ Error updating status.");
+                     }
+                 });
+             });
+         });
+     </script>
+
+
+
 
 
  </body>

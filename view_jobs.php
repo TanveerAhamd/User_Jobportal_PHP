@@ -1,3 +1,27 @@
+ <?php
+// DB Connection
+$conn = new mysqli("localhost", "root", "", "user-profile");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Job ID from URL
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    die("Job not found.");
+}
+
+$id = intval($_GET['id']);
+
+// Fetch job details
+$sql = "SELECT * FROM jobs WHERE id = $id";
+$result = $conn->query($sql);
+
+if ($result->num_rows == 0) {
+    die("Job not found.");
+}
+
+$job = $result->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,6 +76,7 @@
         .custom-table .section-heading th {
             border-bottom: 1px solid #dee2e6 !important;
         }
+
         .tag {
             background-color: #5bc0de;
             color: white;
@@ -220,10 +245,90 @@
                                     <!-- Apply Button -->
                                     <div class="mt-4">
                                         <a href="#" class="btn btn-success me-2">Apply for this Job</a>
+                                        <!-- <td>
+                                           
+                                            <form method="POST" action="apply-job.php">
+                                                <input type="hidden" name="job_title" value="Company Secretary">
+                                                <input type="hidden" name="department" value="Management lorem30">
+                                                <input type="hidden" name="project" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, libero.">
+                                                <input type="hidden" name="province" value="PUNJAB">
+                                                <input type="hidden" name="last_date" value="2025-08-15">
+                                                <button type="submit" name="apply" class="btn btn-primary btn-sm">Apply</button>
+                                            </form>
+                                        </td> -->
                                         <a href="#" class="btn btn-warning text-white">View Advertisement</a>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- dxfgchvjb -->
+                            
+
+<div class="row">
+    <!-- Left Column -->
+    <div class="col-md-4 left-col">
+        <table class="table custom-table">
+            <thead>
+                <tr>
+                    <th colspan="2" class="text-primary">Job Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><th>Division:</th><td><?= $job['division'] ?></td></tr>
+                <tr><th>District:</th><td><?= $job['district'] ?></td></tr>
+                <tr><th>Industry:</th><td><?= $job['industry'] ?></td></tr>
+                <tr><th>Project:</th><td><?= $job['project'] ?></td></tr>
+                <tr><th>Total Positions:</th><td><?= $job['total_positions'] ?></td></tr>
+                <tr><th>Employment Status:</th><td><?= $job['employment_status'] ?></td></tr>
+                <tr><th>Role:</th><td><?= $job['role_title'] ?></td></tr>
+                <tr><th>Job Posted:</th><td><?= date("d-m-Y", strtotime($job['job_posted'])) ?></td></tr>
+                <tr><th>Level:</th><td><?= $job['level'] ?></td></tr>
+                <tr><th>Last Date to Apply:</th><td><?= date("d-m-Y", strtotime($job['last_date'])) ?></td></tr>
+
+                <tr class="section-heading">
+                    <th colspan="2" class="text-primary">Preferred Candidates</th>
+                </tr>
+                <tr><th>Years of Experience:</th><td><?= $job['experience'] ?></td></tr>
+                <tr><th>Gender:</th><td><?= $job['gender'] ?></td></tr>
+                <tr><th>Age:</th><td><?= $job['age_range'] ?></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Right Column -->
+    <div class="col-md-8">
+        <a href="appliedjobs.php" class="btn btn-success btn-sm mb-3">Back to Listings</a>
+
+        <div class="d-flex align-items-center mb-3">
+            <img src="<?= $job['company_logo'] ?? 'default-logo.png' ?>" alt="Logo" class="job-logo me-3">
+            <div class="date-box me-3">
+                <strong><?= date("d", strtotime($job['job_posted'])) ?></strong><?= date("M", strtotime($job['job_posted'])) ?>
+            </div>
+            <div>
+                <h5 class="mb-0"><?= $job['job_title'] ?></h5>
+                <small class="text-muted"><?= $job['project'] ?>, <?= $job['province'] ?></small>
+            </div>
+        </div>
+
+        <h6 class="section-title text-danger">Job Description</h6>
+        <p><?= nl2br($job['job_description']) ?></p>
+
+        <h6 class="section-title text-danger">Job Responsibilities</h6>
+        <p><?= nl2br($job['job_responsibilities']) ?></p>
+
+        <h6 class="section-title text-danger mt-3">Degree Level</h6>
+        <span class="tag"><?= $job['degree_level'] ?></span>
+
+        <h6 class="section-title text-danger mt-3">Degree Area</h6>
+        <span class="tag"><?= $job['degree_area'] ?></span>
+
+        <div class="mt-4">
+            <a href="<?= $job['job_link'] ?>" target="_blank" class="btn btn-success me-2">Apply for this Job</a>
+            <a href="#" class="btn btn-warning text-white">View Advertisement</a>
+        </div>
+    </div>
+</div>
+
                         </div>
                     </div>
                 </div>

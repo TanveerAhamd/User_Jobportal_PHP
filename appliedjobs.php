@@ -1,5 +1,6 @@
-<?php 
-session_start();
+<?php
+include('include/auth.php');
+$result = $cn->query("SELECT * FROM jobs ORDER BY created_at DESC");
 ?>
 <!doctype html>
 <html lang="en">
@@ -9,11 +10,13 @@ session_start();
     <meta charset="utf-8" />
     <title>Contact | Clivax - Admin & Dashboard Template</title>
     <?php include('include/source.html'); ?>
+
     <style>
         table,
         th,
         td {
             border: none !important;
+
         }
 
         table.dataTable.no-footer {
@@ -56,6 +59,26 @@ session_start();
                 margin-bottom: 5px;
                 color: #555;
             }
+        }
+
+        .btn-apply {
+            background: #22c0e8;
+            padding: 5px 20px;
+            text-align: center;
+            border-radius: 25px;
+            color: #fff;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            /* text-align: center; */
+            white-space: nowrap;
+            vertical-align: middle;
+            border: 1px solid transparent;
         }
     </style>
 
@@ -171,8 +194,8 @@ session_start();
                                 <div class="row">
                                     <div class="col-xl-12 ">
                                         <div class="table-responsive">
-                                            <table id="selection-datatable" class="bg-secondary-subtle"
-                                                class="table dt-responsive nowrap  border-0 ">
+                                            <table id="datatable-col-render" class="table table-hover table-bordered table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+
                                                 <thead>
                                                     <tr>
                                                         <th>Jobs Title</th>
@@ -180,104 +203,31 @@ session_start();
                                                         <th>Project</th>
                                                         <th>Province</th>
                                                         <th>Last Date Apply</th>
-                                                        <th></th>
+                                                        <th> View Jobs</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="bg-white">
-                                                    <!-- Example row -->
-                                                    <tr>
-                                                        <td>
-                                                            <a href="" class="text-info "
-                                                                style="font-weight: 500; opacity: 0.5;">Company
-                                                                Secretary</a>
-                                                        </td>
-                                                        <td>Management lorem30</td>
-                                                        <td>
 
 
-                                                            <p class="">Lorem ipsum dolor sit amet consectetur
-                                                                adipisicing elit. Doloremque, libero.</p>
-                                                        </td>
-                                                        <td>PUNJAB</td>
-                                                        <td>15-Aug-2025</td>
-                                                        <td>
-                                                            <!-- Inside your <td> where "Apply" button is -->
-                                                        <form method="POST" action="apply-job.php">
-                                                            <input type="hidden" name="job_title" value="Company Secretary">
-                                                            <input type="hidden" name="department" value="Management lorem30">
-                                                            <input type="hidden" name="project" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, libero.">
-                                                            <input type="hidden" name="province" value="PUNJAB">
-                                                            <input type="hidden" name="last_date" value="2025-08-15">
-                                                            <button type="submit" name="apply" class="btn btn-primary btn-sm">Apply</button>
-                                                        </form>
-                                                        </td>
 
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>
-                                                            <a href="" class="text-info "
-                                                                style="font-weight: 500; opacity: 0.5;">Company
-                                                                Secretary</a>
-                                                        </td>
-                                                        <td>Management lorem30</td>
-                                                        <td>
+                                                    <?php while ($row = $result->fetch_assoc()): ?>
+                                                        <tr>
+                                                            <td> <?= htmlspecialchars($row['job_title']) ?></td>
+                                                            <td><?= htmlspecialchars($row['department']) ?></td>
+                                                            <td>
+                                                                <p><?= htmlspecialchars($row['project']) ?></p>
+                                                            </td>
+                                                            <td><?= htmlspecialchars($row['province']) ?></td>
+                                                            <td><?= date('d-M-Y', strtotime($row['last_date'])) ?></td>
+                                                            <td><a href="view_jobs.php" class="btn btn-apply">View Details</a></td>
+                                                            
+                                                        </tr>
+                                                    <?php endwhile; ?>
 
 
-                                                            <p class="">Lorem ipsum dolor sit amet consectetur
-                                                                adipisicing elit. Doloremque, libero.</p>
-                                                        </td>
-                                                        <td>PUNJAB</td>
-                                                        <td>15-Aug-2025</td>
-                                                        <td class="d-flex gap-1">
-                                                            <small class="btn btn-primary text-white"> <i
-                                                                    class="ri-printer-line"></i></small>
-                                                            <small class="btn btn-primary">Apply</small>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="" class="text-info "
-                                                                style="font-weight: 500; opacity: 0.5;">Company
-                                                                Secretary</a>
-                                                        </td>
-                                                        <td>Management lorem30</td>
-                                                        <td>
 
 
-                                                            <p class="">Lorem ipsum dolor sit amet consectetur
-                                                                adipisicing elit. Doloremque, libero.</p>
-                                                        </td>
-                                                        <td>PUNJAB</td>
-                                                        <td>15-Aug-2025</td>
-                                                        <td class="d-flex gap-1">
-                                                            <small class="btn btn-primary text-white"> <i
-                                                                    class="ri-printer-line"></i></small>
-                                                            <small class="btn btn-primary">Apply</small>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="" class="text-info "
-                                                                style="font-weight: 500; opacity: 0.5;">Company
-                                                                Secretary</a>
-                                                        </td>
-                                                        <td>Management lorem30</td>
-                                                        <td>
 
-
-                                                            <p class="">Lorem ipsum dolor sit amet consectetur
-                                                                adipisicing elit. Doloremque, libero.</p>
-                                                        </td>
-                                                        <td>PUNJAB</td>
-                                                        <td>15-Aug-2025</td>
-                                                        <td class="d-flex gap-1">
-                                                            <small class="btn btn-primary text-white"> <i
-                                                                    class="ri-printer-line"></i></small>
-                                                            <small class="btn btn-primary">Apply</small>
-                                                        </td>
-                                                    </tr>
-                                                    <!-- More tr will be here.... -->
 
 
 
@@ -310,7 +260,7 @@ session_start();
     <!-- END layout-wrapper -->
 
 
-    <div class="custom-setting bg-primary pe-0 d-flex flex-column rounded-start">
+    <!-- <div class="custom-setting bg-primary pe-0 d-flex flex-column rounded-start">
         <button type="button" class="btn btn-wide border-0 text-white fs-20 avatar-sm rounded-end-0"
             id="light-dark-mode">
             <i class="mdi mdi-brightness-7 align-middle"></i>
@@ -322,11 +272,11 @@ session_start();
         <button type="button" class="btn btn-wide border-0 text-white fs-16 avatar-sm" id="layout-dir-btn">
             <span>RTL</span>
         </button>
-    </div>
+    </div> -->
 
 
     <!-- Rightbar Sidebar -->
-    <div class="offcanvas offcanvas-end" id="offcanvas-rightsidabar">
+    <!-- <div class="offcanvas offcanvas-end" id="offcanvas-rightsidabar">
         <div class="card h-100 rounded-0" data-simplebar="init">
             <div class="card-header bg-light">
                 <h6 class="card-title text-uppercase">Activities</h6>
@@ -512,8 +462,11 @@ session_start();
                     </div>
                 </div>
             </div>
-        </div> <!-- end card-->
-    </div>
+        </div> 
+    </div> -->
+
+
+
     <!-- <script src="./assets/libs/jquery/jquery.min.js"></script> -->
     <!-- <script src="./assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script> -->
     <!-- ✅ Load jQuery FIRST -->
@@ -562,7 +515,17 @@ session_start();
 
     <script src="assets/js/pages/dashboard.init.js"></script>
 
-    <!-- App js -->
+    <!-- Required datatable js -->
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+
+    <!-- Datatable init js -->
+    <script src="assets/js/pages/datatables-advanced.init.js"></script>
+
     <script src="assets/js/app.js"></script>
 
     <script>

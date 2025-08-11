@@ -1,6 +1,5 @@
 <?php
-include('include/config.php');
-session_start();
+ include ('include/auth.php'); 
 
 // Handle delete action
 if (isset($_GET['delete_id'])) {

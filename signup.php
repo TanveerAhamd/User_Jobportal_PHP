@@ -18,10 +18,10 @@ if (isset($_POST['user_register_btn'])) {
     $query = "INSERT INTO signup (user_register_name, user_register_email, user_register_password) VALUES ('$user_register_name', '$user_register_email', '$user_register_password')";
 
     if ($cn->query($query) === TRUE) {
-        $_SESSION['user_register_btn'] = $user_register_name; // optional: to show name on dashboard
+        $_SESSION['user_register_btn'] = $user_register_email; // optional: to show name on dashboard
         header("Location: dashboard.php");
         exit();
-    } else {
+    } else {    
         echo "❌ Error: " . $query . "<br>" . $cn->error;
     }
 }

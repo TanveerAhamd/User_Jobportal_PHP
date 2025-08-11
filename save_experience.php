@@ -1,6 +1,5 @@
 <?php
-session_start();
-include ('include/config.php');
+include('include/auth.php');
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['savebtn'])) {
@@ -12,32 +11,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['savebtn'])) {
     $job_level = $_POST['job_level'];
     $country = $_POST['country'];
     $jobDesc = $_POST['jobDesc'];
-    
+
     // Check if it's an update (experience_id is set)
     if (!empty($_POST['experience_id'])) {
-    $id = $_POST['experience_id']; // Map to correct variable
+        $id = $_POST['experience_id']; // Map to correct variable
 
-    $sql = "UPDATE job_experience 
+        $sql = "UPDATE job_experience 
             SET position_title = ?, from_date = ?, to_date = ?, company_name = ?, 
                 job_level = ?, country = ?, jobDesc = ? 
             WHERE id = ?";
 
-    $stmt = $cn->prepare($sql);
-    if ($stmt) {
-        $stmt->bind_param("sssssssi", $position_title, $from_date, $to_date, $company_name, $job_level, $country, $jobDesc, $id);
-        if ($stmt->execute()) {
-            echo "✅ Experience updated successfully!";
-           header("Location:profile_builder_form_wizard.php");
-           exit();
+        $stmt = $cn->prepare($sql);
+        if ($stmt) {
+            $stmt->bind_param("sssssssi", $position_title, $from_date, $to_date, $company_name, $job_level, $country, $jobDesc, $id);
+            if ($stmt->execute()) {
+                echo "✅ Experience updated successfully!";
+                header("Location:profile_builder_form_wizard.php");
+                exit();
+            } else {
+                echo "❌ Update failed: " . $stmt->error;
+            }
+            $stmt->close();
         } else {
-            echo "❌ Update failed: " . $stmt->error;
+            echo "❌ Prepare failed (Update): " . $cn->error;
         }
-        $stmt->close();
     } else {
-        echo "❌ Prepare failed (Update): " . $cn->error;
-    }
-}
-else {
         // ✅ INSERT New Experience
         $sql = "INSERT INTO job_experience (position_title, from_date, to_date, company_name, job_level, country, jobDesc)
                 VALUES ('$position_title' , '$from_date', '$to_date', '$company_name', '$job_level', '$country', '$jobDesc')";
@@ -47,8 +45,8 @@ else {
             // $stmt->bind_param("sssssss", $position_title, $from_date, $to_date, $company_name, $job_level, $country, $jobDesc);
             if ($stmt->execute()) {
                 echo "✅ New experience added successfully!";
-                 header("Location:profile_builder_form_wizard.php");
-                 exit();
+                header("Location:profile_builder_form_wizard.php");
+                exit();
             } else {
                 echo "❌ Insert failed: " . $stmt->error;
             }
@@ -66,4 +64,3 @@ else {
 
 
 
- 

@@ -1,6 +1,6 @@
 <?php
-// 1. Database connection
-include ('../include/config.php');
+// 1. Database connection & authorization
+include ('include/auth.php');
 
 // 2. Fetch data from Profile_builder table
 $sql = "SELECT * FROM Profile_builder";
